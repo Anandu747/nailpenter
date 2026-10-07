@@ -10,8 +10,8 @@ export const IMG = {
 export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
-  { label: "New Clients", href: "#new-clients" },
-  { label: "Contact", href: "#contact" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Faq", href: "#faq" },
 ];
 
 export const FEATURES = [
@@ -71,6 +71,6 @@ export const CATEGORIES = [
     desc: "Handmade, reusable sets made to your size and style, ready to wear at home.",
     price: "₹599",
     img: IMG.ext,
-    bg: "bg-[#f1ede5]",
+    bg: "bg-mint",
   },
 ];

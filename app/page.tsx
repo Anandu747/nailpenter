@@ -8,6 +8,10 @@ import About from "@/components/About";
 import Highlights from "@/components/Highlights";
 import HoursCta from "@/components/HoursCta";
 import Footer from "@/components/Footer";
+import WhoWeAre from "@/components/WhoWeAre";
+import VisionMission from "@/components/VisionMission";
+import Faq from "@/components/Faq";
+import Reviews from "@/components/Reviews";
 
 export default function Home() {
   return (
@@ -17,6 +21,7 @@ export default function Home() {
 
       <div className="mx-auto max-w-[1440px]">
         <Features />
+        <About />
         <Categories />
         <Services />
       </div>
@@ -24,9 +29,13 @@ export default function Home() {
       <Showcase />
 
       <div className="mx-auto max-w-[1440px]">
-        <About />
-        <Highlights />
-        <HoursCta />
+        
+        <WhoWeAre />
+        <VisionMission />
+        <Faq />
+        <Reviews />
+        {/* <Highlights /> */}
+        {/* <HoursCta /> */}
         <Footer />
       </div>
     </main>

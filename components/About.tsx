@@ -18,13 +18,13 @@ export default function About() {
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/35 to-transparent" />
 
           <div className="absolute bottom-5 left-5 rounded-2xl border border-white/40 bg-white/30 px-5 py-4 backdrop-blur-md">
-            <p className="text-lg font-semibold text-white">Soniya</p>
-            <p className="text-xs uppercase tracking-wide text-white/90">
+            <p className="text-xl font-semibold text-white">Soniya</p>
+            <p className="text-sm font-medium uppercase tracking-wide text-white">
               Nail Artist &amp; Owner
             </p>
           </div>
 
-          <span className="absolute right-5 top-5 flex items-center gap-1.5 rounded-full bg-white/85 px-4 py-1.5 text-sm font-medium backdrop-blur">
+          <span className="absolute right-5 top-5 flex items-center gap-1.5 rounded-full bg-white/85 px-4 py-1.5 text-sm font-semibold backdrop-blur">
             <LuMapPin size={14} className="text-teal" />
             {CONTACT.location}
           </span>
@@ -33,17 +33,17 @@ export default function About() {
         {/* Content card */}
         <Card className="flex flex-col justify-between bg-mint p-6 md:p-10">
           <div>
-            <span className="inline-block rounded-full border border-teal/40 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-teal-dark">
+            <span className="inline-block rounded-full border border-teal/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-teal-dark">
               About Us
             </span>
 
-            <h2 className="mt-6 text-4xl font-extralight leading-[1.05] text-ink/85 md:text-6xl">
+            <h2 className="mt-6 text-4xl font-medium leading-[1.05] text-ink md:text-6xl">
               Handcrafted nails,
               <br />
               made with love.
             </h2>
 
-            <p className="mt-6 max-w-lg text-sm leading-relaxed text-ink/70 md:text-base">
+            <p className="mt-6 max-w-lg text-base font-medium leading-relaxed text-ink/75 md:text-lg">
               Nailbento by Soniya is a Kochi-based nail studio for nails, lashes
               and more. Every set is designed around what you want, from clean
               everyday looks to detailed nail art, and we also make handmade
@@ -54,7 +54,7 @@ export default function About() {
               {ABOUT_TAGS.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full bg-white/80 px-4 py-1.5 text-sm text-teal-dark"
+                  className="rounded-full bg-white/80 px-4 py-1.5 text-sm font-semibold text-teal-dark"
                 >
                   {t}
                 </span>
@@ -67,14 +67,14 @@ export default function About() {
               href={CONTACT.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition hover:bg-teal"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-base font-semibold text-white transition hover:bg-teal"
             >
               <FaInstagram size={16} />
               DM to book
             </a>
             <a
               href={`tel:+91${CONTACT.phone}`}
-              className="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-white/60 px-6 py-3 text-sm font-medium transition hover:border-teal hover:text-teal"
+              className="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-white/60 px-6 py-3 text-base font-semibold transition hover:border-teal hover:text-teal"
             >
               <LuPhone size={16} />
               {CONTACT.phoneDisplay}
@@ -87,8 +87,8 @@ export default function About() {
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
         {ABOUT_STATS.map((s) => (
           <Card key={s.label} className="bg-mint p-6">
-            <p className="text-3xl font-light md:text-4xl">{s.value}</p>
-            <p className="mt-1 text-sm text-ink/60">{s.label}</p>
+            <p className="text-3xl font-medium text-ink md:text-4xl">{s.value}</p>
+            <p className="mt-1 text-base font-medium text-ink/75">{s.label}</p>
           </Card>
         ))}
       </div>

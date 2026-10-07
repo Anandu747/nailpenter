@@ -187,20 +187,41 @@ const ScrollExpand = ({
     };
   }, [applyProgress, useWindowScroll]);
 
+  // Force muted + play so autoplay works reliably (esp. mobile Safari)
+  useEffect(() => {
+    if (mediaType !== 'video') return;
+    const v = mediaRef.current;
+    if (!v) return;
+    v.muted = true;
+    const playPromise = v.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {});
+    }
+  }, [mediaType, src]);
+
   const media =
     mediaType === 'video' ? (
       <video
         ref={mediaRef}
         className="scroll-expand__media"
+        style={{ objectFit: 'cover' }}
         src={src}
         poster={poster}
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
       />
     ) : (
-      <img ref={mediaRef} className="scroll-expand__media" src={src} alt={alt} draggable={false} />
+      <img
+        ref={mediaRef}
+        className="scroll-expand__media"
+        style={{ objectFit: 'cover' }}
+        src={src}
+        alt={alt}
+        draggable={false}
+      />
     );
 
   return (
