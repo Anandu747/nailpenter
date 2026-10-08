@@ -34,7 +34,7 @@ export default function Hero() {
       {/* Content */}
       <div className="pointer-events-none relative z-30 mx-auto h-full max-w-[1440px]">
         <div className="px-6 pt-32 md:px-10 md:pt-40">
-          <h1 className="text-6xl font-medium leading-[1.02] text-white [text-shadow:0_2px_20px_rgba(0,60,50,0.55)] md:text-8xl md:text-ink md:[text-shadow:none]">
+          <h1 className="font-display text-7xl font-normal leading-[1.02] text-white [text-shadow:0_2px_20px_rgba(0,60,50,0.55)] md:text-[8vw] md:text-ink md:[text-shadow:none]">
             Luxury
             <br />
             Nail Care

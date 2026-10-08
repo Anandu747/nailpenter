@@ -8,6 +8,7 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true);
   const [atTop, setAtTop] = useState(true);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string>("");
   const lastY = useRef(0);
 
   useEffect(() => {
@@ -16,12 +17,12 @@ export default function Navbar() {
       setAtTop(y < 10);
 
       if (y < 10) {
-        setVisible(true); // always show at the very top
+        setVisible(true);
       } else if (y > lastY.current + 5) {
-        setVisible(false); // scrolling down -> hide
-        setOpen(false); // close mobile menu too
+        setVisible(false);
+        setOpen(false);
       } else if (y < lastY.current - 5) {
-        setVisible(true); // scrolling up -> show
+        setVisible(true);
       }
       lastY.current = y;
     };
@@ -31,95 +32,113 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 md:px-10">
-        <a href="#">
+    <header
+      className={`fixed inset-x-0 z-50 px-4 transition-all duration-300 md:px-8 ${
+        atTop ? "top-5" : "top-3"
+      } ${visible ? "translate-y-0 opacity-100" : "-translate-y-28 opacity-0"}`}
+    >
+      <div
+        className={`mx-auto flex max-w-5xl items-center justify-between gap-6 rounded-full bg-white/90 px-3 py-2 backdrop-blur-md md:px-4 ${
+          atTop ? "shadow-sm" : "shadow-lg"
+        }`}
+      >
+        {/* Logo */}
+        <a href="#" aria-label="Nailbento by Soniya home" className="shrink-0">
           <img
             src="/logo.png"
             alt="Nailbento by Soniya"
-            className="h-25 w-25 rounded-full bg-white p-0.5 shadow"
+            className="h-16 w-16 rounded-full object-cover md:h-20 md:w-20"
           />
         </a>
 
-        {/* Desktop pill */}
-        <nav
-          className={`fixed left-1/2 z-50 hidden -translate-x-1/2 gap-8 rounded-full bg-white/80 px-8 py-3 text-sm font-medium backdrop-blur transition-all duration-300 md:flex ${
-            atTop ? "top-[42px]" : "top-4 shadow-lg"
-          } ${visible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"}`}
-        >
-          {NAV_LINKS.map((l) => (
-            <a key={l.label} href={l.href} className="transition hover:text-teal">
-              {l.label}
-            </a>
-          ))}
+        {/* Desktop links */}
+        <nav className="hidden items-center gap-8 md:flex">
+          {NAV_LINKS.map((l) => {
+            const isActive = active === l.href;
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setActive(l.href)}
+                className={`relative py-1 text-[15px] font-medium transition hover:text-teal ${
+                  isActive ? "text-teal-dark" : "text-ink/80"
+                }`}
+              >
+                {l.label}
+                <span
+                  className={`absolute inset-x-0 -bottom-1 h-0.5 rounded bg-teal-dark transition-transform duration-300 ${
+                    isActive ? "scale-x-100" : "scale-x-0"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </nav>
 
-        {/* Desktop Book Now */}
+        {/* Desktop CTA */}
         <a
           href="#contact"
-          className="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal md:inline-block"
+          className="hidden shrink-0 rounded-full bg-teal-dark px-8 py-4 text-[15px] font-semibold text-white transition hover:bg-ink md:inline-block"
         >
           Book Now
         </a>
 
-        {/* Mobile hamburger + dropdown */}
-        <div
-          className={`fixed right-6 z-50 transition-all duration-300 md:hidden ${
-            atTop ? "top-12" : "top-4"
-          } ${visible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"}`}
+        {/* Mobile hamburger */}
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-1.5 rounded-full bg-mint md:hidden"
         >
-          <button
-            type="button"
-            onClick={() => setOpen((o) => !o)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full bg-white/80 shadow backdrop-blur"
-          >
-            <span
-              className={`h-0.5 w-5 rounded bg-ink transition-all duration-300 ${
-                open ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`h-0.5 w-5 rounded bg-ink transition-all duration-300 ${
-                open ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`h-0.5 w-5 rounded bg-ink transition-all duration-300 ${
-                open ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
-          </button>
-
-          <div
-            className={`absolute right-0 top-full mt-3 w-60 origin-top-right rounded-3xl bg-white/90 p-5 shadow-xl backdrop-blur transition-all duration-200 ${
-              open
-                ? "pointer-events-auto scale-100 opacity-100"
-                : "pointer-events-none scale-95 opacity-0"
+          <span
+            className={`h-0.5 w-5 rounded bg-ink transition-all duration-300 ${
+              open ? "translate-y-2 rotate-45" : ""
             }`}
-          >
-            <nav className="flex flex-col gap-1 text-base font-medium">
-              {NAV_LINKS.map((l) => (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-2.5 transition hover:bg-teal/10 hover:text-teal"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </nav>
+          />
+          <span
+            className={`h-0.5 w-5 rounded bg-ink transition-all duration-300 ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`h-0.5 w-5 rounded bg-ink transition-all duration-300 ${
+              open ? "-translate-y-2 -rotate-45" : ""
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* Mobile dropdown */}
+      <div
+        className={`mx-auto mt-3 max-w-5xl origin-top rounded-3xl bg-white/95 p-5 shadow-xl backdrop-blur-md transition-all duration-200 md:hidden ${
+          open
+            ? "pointer-events-auto scale-100 opacity-100"
+            : "pointer-events-none scale-95 opacity-0"
+        }`}
+      >
+        <nav className="flex flex-col gap-1 text-base font-medium">
+          {NAV_LINKS.map((l) => (
             <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="mt-3 block rounded-full bg-ink px-5 py-3 text-center text-sm font-medium text-white transition hover:bg-teal"
+              key={l.href}
+              href={l.href}
+              onClick={() => {
+                setActive(l.href);
+                setOpen(false);
+              }}
+              className="rounded-xl px-3 py-3 transition hover:bg-teal/10 hover:text-teal"
             >
-              Book Now
+              {l.label}
             </a>
-          </div>
-        </div>
+          ))}
+        </nav>
+        <a
+          href="#contact"
+          onClick={() => setOpen(false)}
+          className="mt-3 block rounded-full bg-teal-dark px-5 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-ink"
+        >
+          Book Now
+        </a>
       </div>
     </header>
   );

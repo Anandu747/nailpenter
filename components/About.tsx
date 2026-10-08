@@ -1,96 +1,66 @@
 /* eslint-disable @next/next/no-img-element */
-import Card from "@/components/ui/Card";
-import { ABOUT_STATS, ABOUT_TAGS, CONTACT, IMG } from "@/lib/data";
-import { FaInstagram } from "react-icons/fa";
-import { LuMapPin, LuPhone } from "react-icons/lu";
+import { ABOUT_STATS, CONTACT, IMG } from "@/lib/data";
+import { LuArrowRight } from "react-icons/lu";
 
 export default function About() {
   return (
-    <section id="about" className="mt-16 px-6 md:px-10">
-      <div className="grid gap-4 md:grid-cols-2">
-        {/* Image card */}
-        <div className="relative min-h-[460px] overflow-hidden rounded-3xl bg-mint md:min-h-[560px]">
+    <section
+      id="about"
+      className="relative left-1/2 mt-8 w-screen -translate-x-1/2 md:mt-12"
+    >
+      <div className="grid md:grid-cols-2">
+        {/* Image: full height, edge to edge */}
+        <div className="relative min-h-[420px] md:min-h-[680px]">
           <img
             src={IMG.owner}
             alt="Soniya, nail artist and owner"
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/35 to-transparent" />
-
-          <div className="absolute bottom-5 left-5 rounded-2xl border border-white/40 bg-white/30 px-5 py-4 backdrop-blur-md">
-            <p className="text-xl font-semibold text-white">Soniya</p>
-            <p className="text-sm font-medium uppercase tracking-wide text-white">
-              Nail Artist &amp; Owner
-            </p>
-          </div>
-
-          <span className="absolute right-5 top-5 flex items-center gap-1.5 rounded-full bg-white/85 px-4 py-1.5 text-sm font-semibold backdrop-blur">
-            <LuMapPin size={14} className="text-teal" />
-            {CONTACT.location}
-          </span>
         </div>
 
-        {/* Content card */}
-        <Card className="flex flex-col justify-between bg-mint p-6 md:p-10">
-          <div>
-            <span className="inline-block rounded-full border border-teal/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-teal-dark">
-              About Us
-            </span>
+        {/* Content panel */}
+        <div className="flex min-w-0 flex-col justify-center bg-mint/60 px-6 py-14 md:px-12 md:py-20 lg:px-16">
+          <span className="block h-[3px] w-14 bg-teal" />
 
-            <h2 className="mt-6 text-4xl font-medium leading-[1.05] text-ink md:text-6xl">
-              Handcrafted nails,
-              <br />
-              made with love.
-            </h2>
+          <h2 className="mt-8 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
+            Our Story
+          </h2>
 
-            <p className="mt-6 max-w-lg text-base font-medium leading-relaxed text-ink/75 md:text-lg">
-              Nailbento by Soniya is a Kochi-based nail studio for nails, lashes
-              and more. Every set is designed around what you want, from clean
-              everyday looks to detailed nail art, and we also make handmade
-              press-on nails you can wear at home.
-            </p>
+          <p className="mt-8 text-lg font-medium text-ink md:text-xl">
+            Nailbento by Soniya: handcrafted nails in {CONTACT.location}
+          </p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {ABOUT_TAGS.map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full bg-white/80 px-4 py-1.5 text-sm font-semibold text-teal-dark"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
+          <p className="mt-5 max-w-xl text-base font-normal leading-loose text-ink/70">
+            Nailbento by Soniya is a Kochi-based nail studio for nails, lashes
+            and more. Every set is designed around what you want, from clean
+            everyday looks to detailed nail art, and we also make handmade
+            press-on nails you can wear at home.
+          </p>
+
+          <a
+            href={CONTACT.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-flex w-fit items-center gap-3 border border-ink/40 px-7 py-4 text-base font-medium text-teal-dark transition hover:border-teal hover:bg-teal hover:text-white"
+          >
+            DM to book
+            <LuArrowRight size={18} />
+          </a>
+
+          {/* Stats */}
+          <div className="mt-14 grid grid-cols-3 gap-4 border-t border-ink/30 pt-10">
+            {ABOUT_STATS.map((s) => (
+              <div key={s.label} className="min-w-0 text-center">
+                <p className="break-words font-display text-2xl font-normal leading-tight text-teal sm:text-3xl lg:text-4xl">
+                  {s.value}
+                </p>
+                <p className="mt-2 text-xs font-medium text-ink/75 md:text-sm lg:text-base">
+                  {s.label}
+                </p>
+              </div>
+            ))}
           </div>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={CONTACT.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-base font-semibold text-white transition hover:bg-teal"
-            >
-              <FaInstagram size={16} />
-              DM to book
-            </a>
-            <a
-              href={`tel:+91${CONTACT.phone}`}
-              className="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-white/60 px-6 py-3 text-base font-semibold transition hover:border-teal hover:text-teal"
-            >
-              <LuPhone size={16} />
-              {CONTACT.phoneDisplay}
-            </a>
-          </div>
-        </Card>
-      </div>
-
-      {/* Stats */}
-      <div className="mt-4 grid gap-4 sm:grid-cols-3">
-        {ABOUT_STATS.map((s) => (
-          <Card key={s.label} className="bg-mint p-6">
-            <p className="text-3xl font-medium text-ink md:text-4xl">{s.value}</p>
-            <p className="mt-1 text-base font-medium text-ink/75">{s.label}</p>
-          </Card>
-        ))}
+        </div>
       </div>
     </section>
   );

@@ -34,44 +34,49 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="mt-16 px-6 md:px-10">
-      <div className="grid gap-8 md:grid-cols-[1fr_1.4fr] md:gap-12">
-        <div>
-          <span className="inline-block rounded-full border border-teal/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-teal-dark">
+    <section
+      id="faq"
+      className="mx-auto mt-28 max-w-[1440px] px-6 md:mt-40 md:px-16 lg:px-24"
+    >
+      <div className="grid gap-12 md:grid-cols-[1fr_1.4fr] md:gap-20">
+        {/* Left: heading */}
+        <div className="md:sticky md:top-28 md:self-start">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
             FAQ
-          </span>
-          <h2 className="mt-5 text-4xl font-medium leading-[1.05] text-ink md:text-6xl">
+          </p>
+          <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
             Got questions?
             <br />
             We&apos;ve got answers.
           </h2>
-          <p className="mt-4 max-w-md text-base font-medium leading-relaxed text-ink/75 md:text-lg">
+          <p className="mt-8 max-w-sm text-base font-normal leading-loose text-ink/70 md:text-lg">
             Everything you need to know before your first visit. Still unsure?
             Just DM us.
           </p>
         </div>
 
-        <div className="flex flex-col gap-3">
+        {/* Right: accordion, no boxes */}
+        <div className="border-t border-ink/15">
           {FAQS.map((f, i) => {
             const open = openIndex === i;
             return (
-              <div key={f.q} className="rounded-3xl bg-mint">
+              <div key={f.q} className="border-b border-ink/15">
                 <button
                   type="button"
                   onClick={() => setOpenIndex(open ? null : i)}
                   aria-expanded={open}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-6 py-7 text-left md:py-8"
                 >
-                  <span className="text-lg font-semibold text-ink md:text-xl">
+                  <span className="font-display text-2xl font-normal text-ink md:text-3xl">
                     {f.q}
                   </span>
-                  <span
-                    className={`grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/80 text-teal transition-transform duration-300 ${
+                  <LuPlus
+                    size={26}
+                    strokeWidth={1.25}
+                    className={`shrink-0 text-teal transition-transform duration-300 ${
                       open ? "rotate-45" : ""
                     }`}
-                  >
-                    <LuPlus size={18} />
-                  </span>
+                  />
                 </button>
 
                 <div
@@ -80,7 +85,7 @@ export default function Faq() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-base font-medium leading-relaxed text-ink/75">
+                    <p className="max-w-xl pb-8 text-base font-normal leading-loose text-ink/70">
                       {f.a}
                     </p>
                   </div>

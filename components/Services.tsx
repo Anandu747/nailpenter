@@ -3,31 +3,46 @@ import { SERVICES } from "@/lib/data";
 
 export default function Services() {
   return (
-    <section id="services" className="mt-16 px-6 md:px-10">
-      <h2 className="text-4xl font-medium text-ink md:text-6xl">
-        Our Services
-      </h2>
-      <p className="mt-3 max-w-xl text-base font-medium leading-relaxed text-ink/75 md:text-lg">
-        From classic manicures to detailed nail art, every service is done with
-        clean tools, quality products and a finish you&apos;ll love.
-      </p>
+    <section
+      id="services"
+      className="mx-auto mt-28 max-w-[1440px] px-6 md:mt-40 md:px-16 lg:px-24"
+    >
+      {/* Header */}
+      <div className="grid gap-6 md:grid-cols-2 md:items-end md:gap-20">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
+            Our Services
+          </p>
+          <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
+            Crafted with
+            <br />
+            care, every time.
+          </h2>
+        </div>
+        <p className="max-w-md text-base font-normal leading-loose text-ink/70 md:text-lg">
+          From classic manicures to detailed nail art, every service is done
+          with clean tools, quality products and a finish you&apos;ll love.
+        </p>
+      </div>
 
-      <div className="mt-8 grid gap-4 md:h-[600px] md:grid-flow-col md:grid-cols-3 md:grid-rows-5">
+      {/* Grid */}
+      <div className="mt-14 grid gap-5 md:mt-20 md:h-[680px] md:grid-flow-col md:grid-cols-3 md:grid-rows-5 md:gap-6">
         {SERVICES.map((s) => (
           <div
             key={s.name}
-            className={`group relative h-64 overflow-hidden rounded-3xl bg-mint md:h-auto ${
+            className={`group relative h-72 overflow-hidden rounded-2xl bg-mint md:h-auto ${
               s.tall ? "md:row-span-3" : "md:row-span-2"
             }`}
           >
             <img
               src={s.img}
               alt={s.name}
-              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
             />
-            <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold shadow-sm">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/55 to-transparent" />
+            <p className="absolute bottom-5 left-6 font-display text-2xl font-normal text-white md:text-3xl">
               {s.name}
-            </span>
+            </p>
           </div>
         ))}
       </div>

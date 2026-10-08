@@ -38,25 +38,25 @@ const ROW_TWO = REVIEWS.slice(4);
 
 function ReviewCard({ r }: { r: Review }) {
   return (
-    <article className="w-[300px] shrink-0 rounded-3xl bg-mint p-6 md:w-[380px] md:p-7">
-      <div className="flex gap-1 text-teal">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <LuStar key={i} size={18} className="fill-current" />
-        ))}
-      </div>
-      <p className="mt-4 text-base font-medium leading-relaxed text-ink/80">
-        &ldquo;{r.text}&rdquo;
-      </p>
-      <div className="mt-5 flex items-center gap-3">
-        <span className="grid h-10 w-10 place-items-center rounded-full bg-white/80 text-base font-semibold text-teal-dark">
-          {r.name.charAt(0).toUpperCase()}
-        </span>
-        <div>
-          <p className="text-base font-semibold text-ink">{r.name}</p>
-          <p className="text-sm font-medium text-ink/60">Google review</p>
+    // pr (not gap) so the -50% marquee loop is perfectly seamless
+    <div className="shrink-0 pr-10 md:pr-16">
+      <article className="w-[290px] border-l border-ink/15 pl-7 md:w-[400px] md:pl-9">
+        <div className="flex gap-1 text-teal">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <LuStar key={i} size={14} className="fill-current" />
+          ))}
         </div>
-      </div>
-    </article>
+        <p className="mt-5 font-display text-xl font-normal leading-snug text-ink md:text-2xl">
+          &ldquo;{r.text}&rdquo;
+        </p>
+        <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-ink">
+          {r.name}
+        </p>
+        <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-ink/50">
+          Google review
+        </p>
+      </article>
+    </div>
   );
 }
 
@@ -72,7 +72,7 @@ function MarqueeRow({
   return (
     <div className="reviews-marquee overflow-hidden">
       <div
-        className={`reviews-track flex w-max gap-4 ${
+        className={`reviews-track flex w-max ${
           reverse ? "reviews-track-reverse" : ""
         }`}
       >
@@ -86,20 +86,26 @@ function MarqueeRow({
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="mt-16">
-      <div className="px-6 md:px-10">
-        <span className="inline-block rounded-full border border-teal/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-teal-dark">
-          Reviews
-        </span>
-        <h2 className="mt-5 text-4xl font-medium leading-[1.05] text-ink md:text-6xl">
-          Loved by our clients.
-        </h2>
-        <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-ink/75 md:text-lg">
+    <section id="reviews" className="mt-28 md:mt-40">
+      {/* Header */}
+      <div className="mx-auto grid max-w-[1440px] gap-6 px-6 md:grid-cols-2 md:items-end md:gap-20 md:px-16 lg:px-24">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
+            Reviews
+          </p>
+          <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
+            Loved by
+            <br />
+            our clients.
+          </h2>
+        </div>
+        <p className="max-w-md text-base font-normal leading-loose text-ink/70 md:text-lg">
           Real words from real clients, straight from Google.
         </p>
       </div>
 
-      <div className="reviews-fade mt-8 flex flex-col gap-4">
+      {/* Marquee rows */}
+      <div className="reviews-fade mt-14 flex flex-col gap-12 md:mt-20 md:gap-16">
         <MarqueeRow items={ROW_ONE} />
         <MarqueeRow items={ROW_TWO} reverse />
       </div>

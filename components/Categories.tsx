@@ -5,9 +5,7 @@ import { LuArrowRight } from "react-icons/lu";
 export default function Categories() {
   return (
     <section className="mt-16 px-6 md:px-10">
-      <h2 className="text-4xl font-medium text-ink md:text-6xl">
-        What are you in for?
-      </h2>
+      <h2 className="font-display text-5xl font-normal md:text-7xl">What are you in for?</h2>
       <p className="mt-3 max-w-xl text-base font-medium leading-relaxed text-ink/75 md:text-lg">
         Pick what you&apos;re here for, from fresh nail sets to lashes and
         more. Clear starting prices, so you know what to expect before you
