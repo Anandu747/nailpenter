@@ -10,10 +10,10 @@ export default function About() {
       className="relative left-1/2 mt-8 w-screen -translate-x-1/2 bg-white py-24 md:mt-12 md:py-36"
     >
       <div className="mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
-        <div className="grid gap-x-20 gap-y-16 md:grid-cols-2 lg:gap-x-40">
+        <div className="grid gap-x-20 gap-y-16 md:grid-cols-2 md:items-start lg:gap-x-40">
           {/* Text block (left) */}
           <ScrollReveal direction="left" as="div">
-            <div className="md:pr-10 md:pt-4">
+            <div className="md:pr-10">
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/70">
                 Our Story
               </p>
@@ -41,26 +41,24 @@ export default function About() {
               </a>
 
               {/* Stats */}
-              {/* Stats */}
-<div className="mt-16 flex flex-wrap gap-x-12 gap-y-8 border-t border-ink/20 pt-8">
-  {ABOUT_STATS.map((s) => (
-    <div key={s.label}>
-      <p className="whitespace-nowrap font-display text-3xl font-light leading-tight text-ink md:text-4xl">
-        {s.value}
-      </p>
-      <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
-        {s.label}
-      </p>
-    </div>
-  ))}
-</div>
-
+              <div className="mt-16 flex flex-wrap gap-x-12 gap-y-8 border-t border-ink/20 pt-8">
+                {ABOUT_STATS.map((s) => (
+                  <div key={s.label}>
+                    <p className="whitespace-nowrap font-display text-3xl font-light leading-tight text-ink md:text-4xl">
+                      {s.value}
+                    </p>
+                    <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
+                      {s.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
 
-          {/* Image (right, offset down) */}
+          {/* Image (right) */}
           <ScrollReveal direction="right" as="div">
-            <figure className="md:mt-24">
+            <figure>
               <div className="aspect-[3/4] overflow-hidden rounded-[4px] bg-mint">
                 <img
                   src={IMG.owner}

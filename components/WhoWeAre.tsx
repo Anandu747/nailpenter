@@ -88,7 +88,7 @@ export default function WhoWeAre() {
 
                   {/* Top: icon + number */}
                   <div className="relative z-10 flex items-start justify-between">
-                    <p.icon size={48} strokeWidth={1.25} className="text-white" />
+                    <p.icon size={32} strokeWidth={1.25} className="text-white" />
                     <span className="font-display text-2xl font-normal text-white/70">
                       {p.no}
                     </span>
