@@ -20,7 +20,7 @@ export default function Home() {
       <Hero />
 
       <div className="mx-auto max-w-[1440px]">
-        <Features />
+        {/* <Features /> */}
         <About />
         <Categories />
         <Services />

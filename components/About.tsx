@@ -1,65 +1,78 @@
 /* eslint-disable @next/next/no-img-element */
 import { ABOUT_STATS, CONTACT, IMG } from "@/lib/data";
+import ScrollReveal from "@/components/ScrollReveal";
 import { LuArrowRight } from "react-icons/lu";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="relative left-1/2 mt-8 w-screen -translate-x-1/2 md:mt-12"
+      className="relative left-1/2 mt-8 w-screen -translate-x-1/2 bg-white py-24 md:mt-12 md:py-36"
     >
-      <div className="grid md:grid-cols-2">
-        {/* Image: full height, edge to edge */}
-        <div className="relative min-h-[420px] md:min-h-[680px]">
-          <img
-            src={IMG.owner}
-            alt="Soniya, nail artist and owner"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
+      <div className="mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
+        <div className="grid gap-x-20 gap-y-16 md:grid-cols-2 lg:gap-x-40">
+          {/* Text block (left) */}
+          <ScrollReveal direction="left" as="div">
+            <div className="md:pr-10 md:pt-4">
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/70">
+                Our Story
+              </p>
+              <h2 className="mt-3 font-display text-5xl font-light uppercase leading-[1.05] tracking-[0.04em] text-ink md:text-7xl">
+                Handcrafted
+                <br />
+                In {CONTACT.location}
+              </h2>
 
-        {/* Content panel */}
-        <div className="flex min-w-0 flex-col justify-center bg-mint/60 px-6 py-14 md:px-12 md:py-20 lg:px-16">
-          <span className="block h-[3px] w-14 bg-teal" />
+              <p className="mt-10 max-w-md text-[15px] leading-relaxed text-ink/70">
+                Nailbento by Soniya is a Kochi-based nail studio for nails,
+                lashes and more. Every set is designed around what you want,
+                from clean everyday looks to detailed nail art, and we also
+                make handmade press-on nails you can wear at home.
+              </p>
 
-          <h2 className="mt-8 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
-            Our Story
-          </h2>
+              <a
+                href={CONTACT.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 inline-flex w-fit items-center gap-3 border border-ink/40 px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink transition hover:border-ink hover:bg-ink hover:text-white"
+              >
+                DM to book
+                <LuArrowRight size={16} />
+              </a>
 
-          <p className="mt-8 text-lg font-medium text-ink md:text-xl">
-            Nailbento by Soniya: handcrafted nails in {CONTACT.location}
-          </p>
+              {/* Stats */}
+              {/* Stats */}
+<div className="mt-16 flex flex-wrap gap-x-12 gap-y-8 border-t border-ink/20 pt-8">
+  {ABOUT_STATS.map((s) => (
+    <div key={s.label}>
+      <p className="whitespace-nowrap font-display text-3xl font-light leading-tight text-ink md:text-4xl">
+        {s.value}
+      </p>
+      <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
+        {s.label}
+      </p>
+    </div>
+  ))}
+</div>
 
-          <p className="mt-5 max-w-xl text-base font-normal leading-loose text-ink/70">
-            Nailbento by Soniya is a Kochi-based nail studio for nails, lashes
-            and more. Every set is designed around what you want, from clean
-            everyday looks to detailed nail art, and we also make handmade
-            press-on nails you can wear at home.
-          </p>
+            </div>
+          </ScrollReveal>
 
-          <a
-            href={CONTACT.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-10 inline-flex w-fit items-center gap-3 border border-ink/40 px-7 py-4 text-base font-medium text-teal-dark transition hover:border-teal hover:bg-teal hover:text-white"
-          >
-            DM to book
-            <LuArrowRight size={18} />
-          </a>
-
-          {/* Stats */}
-          <div className="mt-14 grid grid-cols-3 gap-4 border-t border-ink/30 pt-10">
-            {ABOUT_STATS.map((s) => (
-              <div key={s.label} className="min-w-0 text-center">
-                <p className="break-words font-display text-2xl font-normal leading-tight text-teal sm:text-3xl lg:text-4xl">
-                  {s.value}
-                </p>
-                <p className="mt-2 text-xs font-medium text-ink/75 md:text-sm lg:text-base">
-                  {s.label}
-                </p>
+          {/* Image (right, offset down) */}
+          <ScrollReveal direction="right" as="div">
+            <figure className="md:mt-24">
+              <div className="aspect-[3/4] overflow-hidden rounded-[4px] bg-mint">
+                <img
+                  src={IMG.owner}
+                  alt="Soniya, nail artist and owner"
+                  className="h-full w-full object-cover object-top"
+                />
               </div>
-            ))}
-          </div>
+              <figcaption className="mt-5 text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
+                Soniya, Founder &amp; Nail Artist
+              </figcaption>
+            </figure>
+          </ScrollReveal>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { LuPlus } from "react-icons/lu";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const FAQS = [
   {
@@ -39,61 +40,65 @@ export default function Faq() {
       className="mx-auto mt-28 max-w-[1440px] px-6 md:mt-40 md:px-16 lg:px-24"
     >
       <div className="grid gap-12 md:grid-cols-[1fr_1.4fr] md:gap-20">
-        {/* Left: heading */}
-        <div className="md:sticky md:top-28 md:self-start">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
-            FAQ
-          </p>
-          <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
-            Got questions?
-            <br />
-            We&apos;ve got answers.
-          </h2>
-          <p className="mt-8 max-w-sm text-base font-normal leading-loose text-ink/70 md:text-lg">
-            Everything you need to know before your first visit. Still unsure?
-            Just DM us.
-          </p>
-        </div>
+        {/* Left: heading — slides from left */}
+        <ScrollReveal direction="left" as="div">
+          <div className="md:sticky md:top-28 md:self-start">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
+              FAQ
+            </p>
+            <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
+              Got questions?
+              <br />
+              We&apos;ve got answers.
+            </h2>
+            <p className="mt-8 max-w-sm text-base font-normal leading-loose text-ink/70 md:text-lg">
+              Everything you need to know before your first visit. Still unsure?
+              Just DM us.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        {/* Right: accordion, no boxes */}
-        <div className="border-t border-ink/15">
-          {FAQS.map((f, i) => {
-            const open = openIndex === i;
-            return (
-              <div key={f.q} className="border-b border-ink/15">
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(open ? null : i)}
-                  aria-expanded={open}
-                  className="flex w-full items-center justify-between gap-6 py-7 text-left md:py-8"
-                >
-                  <span className="font-display text-2xl font-normal text-ink md:text-3xl">
-                    {f.q}
-                  </span>
-                  <LuPlus
-                    size={26}
-                    strokeWidth={1.25}
-                    className={`shrink-0 text-teal transition-transform duration-300 ${
-                      open ? "rotate-45" : ""
+        {/* Right: accordion — slides from right */}
+        <ScrollReveal direction="right" as="div">
+          <div className="border-t border-ink/15">
+            {FAQS.map((f, i) => {
+              const open = openIndex === i;
+              return (
+                <div key={f.q} className="border-b border-ink/15">
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(open ? null : i)}
+                    aria-expanded={open}
+                    className="flex w-full items-center justify-between gap-6 py-7 text-left md:py-8"
+                  >
+                    <span className="font-display text-2xl font-normal text-ink md:text-3xl">
+                      {f.q}
+                    </span>
+                    <LuPlus
+                      size={26}
+                      strokeWidth={1.25}
+                      className={`shrink-0 text-teal transition-transform duration-300 ${
+                        open ? "rotate-45" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <div
+                    className={`grid transition-all duration-300 ${
+                      open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                     }`}
-                  />
-                </button>
-
-                <div
-                  className={`grid transition-all duration-300 ${
-                    open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="max-w-xl pb-8 text-base font-normal leading-loose text-ink/70">
-                      {f.a}
-                    </p>
+                  >
+                    <div className="overflow-hidden">
+                      <p className="max-w-xl pb-8 text-base font-normal leading-loose text-ink/70">
+                        {f.a}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

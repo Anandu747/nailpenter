@@ -1,35 +1,53 @@
 /* eslint-disable @next/next/no-img-element */
 import { NAV_LINKS, CONTACT } from "@/lib/data";
+import ScrollReveal from "@/components/ScrollReveal";
 import { FaInstagram } from "react-icons/fa";
 import { LuMapPin, LuPhone, LuArrowUpRight } from "react-icons/lu";
 
+// public/ folder-ile image
+const CTA_BG = "/footer-bg.jpg";
+
 export default function Footer() {
   return (
-    <footer className="mt-28 rounded-t-[2rem] bg-ink text-white md:mt-40">
-      <div className="mx-auto max-w-[1440px] px-6 pb-8 pt-20 md:px-16 md:pt-28 lg:px-24">
-        {/* CTA band */}
-        <div className="flex flex-col items-start justify-between gap-10 border-b border-white/15 pb-16 md:flex-row md:items-end md:pb-24">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal">
-              Book your visit
-            </p>
-            <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] md:text-7xl">
-              Ready for nails
-              <br />
-              you&apos;ll love?
-            </h2>
-          </div>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-medium text-ink transition hover:bg-teal hover:text-white"
-          >
-            Book Now
-            <LuArrowUpRight size={18} />
-          </a>
-        </div>
+    <footer className="relative left-1/2 mt-28 w-screen -translate-x-1/2 bg-ink text-white md:mt-40">
+      {/* CTA band with background image (full width) */}
+      <div className="relative isolate">
+        <img
+          src={CTA_BG}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-black/55" />
 
-        {/* Main columns */}
-        <div className="grid gap-14 py-16 md:grid-cols-[1.4fr_1fr_1.2fr] md:gap-20 md:py-24">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-start justify-between gap-10 px-6 py-24 md:flex-row md:items-center md:px-16 md:py-36 lg:px-24">
+          <ScrollReveal direction="left">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+                Book your visit
+              </p>
+              <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] md:text-7xl">
+                Ready for nails
+                <br />
+                you&apos;ll love?
+              </h2>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal direction="right">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-medium text-ink transition hover:bg-teal hover:text-white"
+            >
+              Book Now
+              <LuArrowUpRight size={18} />
+            </a>
+          </ScrollReveal>
+        </div>
+      </div>
+
+      {/* Footer body */}
+      <div className="mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
+        <div className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1.2fr] md:gap-20 md:py-20">
           {/* Brand */}
           <div>
             <img
@@ -38,9 +56,9 @@ export default function Footer() {
               className="h-16 w-16 rounded-full bg-white object-cover p-0.5"
             />
             <p className="mt-6 font-display text-3xl font-normal">
-              Nailbento by Soniya
+              Nailpenter by Soniya
             </p>
-            <p className="mt-4 max-w-sm text-base font-normal leading-loose text-white/60">
+            <p className="mt-4 max-w-sm text-base leading-loose text-white/60">
               A Kochi nail studio for nails, lashes and more. Handcrafted sets,
               clean tools and a finish you&apos;ll love.
             </p>
@@ -51,7 +69,7 @@ export default function Footer() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
               Quick Links
             </p>
-            <nav className="mt-6 flex flex-col gap-4 text-base font-normal">
+            <nav className="mt-6 flex flex-col gap-4 text-base">
               {NAV_LINKS.map((l) => (
                 <a
                   key={l.href}
@@ -69,7 +87,7 @@ export default function Footer() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
               Contact
             </p>
-            <ul className="mt-6 flex flex-col gap-5 text-base font-normal">
+            <ul className="mt-6 flex flex-col gap-5 text-base">
               <li>
                 <a
                   href={`tel:+91${CONTACT.phone}`}
@@ -99,7 +117,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-3 border-t border-white/15 pt-8 text-xs font-medium uppercase tracking-[0.2em] text-white/40 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-white/15 py-8 text-xs font-medium uppercase tracking-[0.2em] text-white/40 md:flex-row">
           <p>
             © {new Date().getFullYear()} Nailbento by Soniya. All rights
             reserved.

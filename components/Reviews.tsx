@@ -1,4 +1,7 @@
+"use client";
+
 import { LuStar } from "react-icons/lu";
+import ScrollReveal from "@/components/ScrollReveal";
 
 type Review = { name: string; text: string };
 
@@ -33,82 +36,77 @@ const REVIEWS: Review[] = [
   },
 ];
 
-const ROW_ONE = REVIEWS.slice(0, 4);
-const ROW_TWO = REVIEWS.slice(4);
-
 function ReviewCard({ r }: { r: Review }) {
   return (
     // pr (not gap) so the -50% marquee loop is perfectly seamless
-    <div className="shrink-0 pr-10 md:pr-16">
-      <article className="w-[290px] border-l border-ink/15 pl-7 md:w-[400px] md:pl-9">
-        <div className="flex gap-1 text-teal">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <LuStar key={i} size={14} className="fill-current" />
-          ))}
+    <div className="flex shrink-0 pr-5 md:pr-6">
+      <article className="flex w-[290px] flex-col justify-between rounded-2xl border border-ink/10 bg-white p-7 shadow-sm md:w-[400px] md:p-9">
+        <div>
+          <div className="flex gap-1 text-teal">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <LuStar key={i} size={16} className="fill-current" />
+            ))}
+          </div>
+          <p className="mt-5 text-base font-normal leading-relaxed text-ink/80 md:text-[17px]">
+  &ldquo;{r.text}&rdquo;
+</p>
         </div>
-        <p className="mt-5 font-display text-xl font-normal leading-snug text-ink md:text-2xl">
-          &ldquo;{r.text}&rdquo;
-        </p>
-        <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-ink">
-          {r.name}
-        </p>
-        <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-ink/50">
-          Google review
-        </p>
+
+        <div className="mt-8 flex items-center gap-3 border-t border-ink/10 pt-5">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-mint text-sm font-semibold uppercase text-teal-dark">
+            {r.name.charAt(0)}
+          </span>
+          <div className="min-w-0">
+            <p className="truncate text-xs font-semibold uppercase tracking-[0.2em] text-ink">
+              {r.name}
+            </p>
+            <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/50">
+              Google review
+            </p>
+          </div>
+        </div>
       </article>
     </div>
   );
 }
 
-function MarqueeRow({
-  items,
-  reverse = false,
-}: {
-  items: Review[];
-  reverse?: boolean;
-}) {
-  // Duplicated so the loop is seamless (track moves -50%)
-  const loop = [...items, ...items, ...items, ...items];
-  return (
-    <div className="reviews-marquee overflow-hidden">
-      <div
-        className={`reviews-track flex w-max ${
-          reverse ? "reviews-track-reverse" : ""
-        }`}
-      >
-        {loop.map((r, i) => (
-          <ReviewCard key={`${r.name}-${i}`} r={r} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function Reviews() {
+  // Duplicated once so the loop is seamless (track moves -50%)
+  const loop = [...REVIEWS, ...REVIEWS];
+
   return (
     <section id="reviews" className="mt-28 md:mt-40">
-      {/* Header */}
+      {/* Header: split reveal */}
       <div className="mx-auto grid max-w-[1440px] gap-6 px-6 md:grid-cols-2 md:items-end md:gap-20 md:px-16 lg:px-24">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
-            Reviews
+        <ScrollReveal direction="left">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
+              Reviews
+            </p>
+            <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
+              Loved by
+              <br />
+              our clients.
+            </h2>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal direction="right">
+          <p className="max-w-md text-base font-normal leading-loose text-ink/70 md:text-lg">
+            Real words from real clients, straight from Google.
           </p>
-          <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
-            Loved by
-            <br />
-            our clients.
-          </h2>
-        </div>
-        <p className="max-w-md text-base font-normal leading-loose text-ink/70 md:text-lg">
-          Real words from real clients, straight from Google.
-        </p>
+        </ScrollReveal>
       </div>
 
-      {/* Marquee rows */}
-      <div className="reviews-fade mt-14 flex flex-col gap-12 md:mt-20 md:gap-16">
-        <MarqueeRow items={ROW_ONE} />
-        <MarqueeRow items={ROW_TWO} reverse />
-      </div>
+      {/* Single marquee row */}
+      <ScrollReveal direction="up">
+        <div className="reviews-fade reviews-marquee mt-14 overflow-hidden py-2 md:mt-20">
+          <div className="reviews-track flex w-max">
+            {loop.map((r, i) => (
+              <ReviewCard key={`${r.name}-${i}`} r={r} />
+            ))}
+          </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }

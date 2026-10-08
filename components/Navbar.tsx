@@ -37,22 +37,26 @@ export default function Navbar() {
         atTop ? "top-5" : "top-3"
       } ${visible ? "translate-y-0 opacity-100" : "-translate-y-28 opacity-0"}`}
     >
-      <div
-        className={`mx-auto flex max-w-5xl items-center justify-between gap-6 rounded-full bg-white/90 px-3 py-2 backdrop-blur-md md:px-4 ${
-          atTop ? "shadow-sm" : "shadow-lg"
-        }`}
-      >
-        {/* Logo */}
-        <a href="#" aria-label="Nailbento by Soniya home" className="shrink-0">
+      <div className="mx-auto flex max-w-7xl items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
+        {/* Logo (left, outside pill) */}
+        <a
+          href="#"
+          aria-label="Nailbento by Soniya home"
+          className="shrink-0 justify-self-start"
+        >
           <img
             src="/logo.png"
             alt="Nailbento by Soniya"
-            className="h-16 w-16 rounded-full object-cover md:h-20 md:w-20"
+            className="h-20 w-20 rounded-full object-cover md:h-28 md:w-28"
           />
         </a>
 
-        {/* Desktop links */}
-        <nav className="hidden items-center gap-8 md:flex">
+        {/* Center pill: links only */}
+        <nav
+          className={`hidden items-center gap-8 rounded-full bg-white/90 px-8 py-3.5 backdrop-blur-md transition-shadow md:flex ${
+            atTop ? "shadow-sm" : "shadow-lg"
+          }`}
+        >
           {NAV_LINKS.map((l) => {
             const isActive = active === l.href;
             return (
@@ -75,10 +79,10 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Desktop CTA */}
+        {/* Desktop CTA (right, outside pill) */}
         <a
           href="#contact"
-          className="hidden shrink-0 rounded-full bg-teal-dark px-8 py-4 text-[15px] font-semibold text-white transition hover:bg-ink md:inline-block"
+          className="hidden shrink-0 justify-self-end rounded-full bg-teal-dark px-7 py-3.5 text-[15px] font-semibold text-white transition hover:bg-ink md:inline-block"
         >
           Book Now
         </a>
@@ -109,7 +113,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown (unchanged) */}
       <div
         className={`mx-auto mt-3 max-w-5xl origin-top rounded-3xl bg-white/95 p-5 shadow-xl backdrop-blur-md transition-all duration-200 md:hidden ${
           open
