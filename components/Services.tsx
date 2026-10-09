@@ -33,29 +33,47 @@ export default function Services() {
         </FadeUp>
       </div>
 
-      {/* Grid: each card staggered up */}
-      <div className="mt-14 grid gap-5 md:mt-20 md:h-[680px] md:grid-flow-col md:grid-cols-3 md:grid-rows-5 md:gap-6">
-        {SERVICES.map((s, i) => (
-          <FadeUp
-            key={s.name}
-            delay={(i % 5) * 100}
-            className={`h-72 md:h-auto ${
-              s.tall ? "md:row-span-3" : "md:row-span-2"
-            }`}
-          >
-            <div className="group relative h-full overflow-hidden rounded-2xl bg-mint">
-              <img
-                src={s.img}
-                alt={s.name}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/55 to-transparent" />
-              <p className="absolute bottom-5 left-6 font-display text-2xl font-normal text-white md:text-3xl">
-                {s.name}
-              </p>
+      {/* Alternating rows */}
+      <div className="mt-14 flex flex-col gap-16 md:mt-20 md:gap-24">
+        {SERVICES.map((s, i) => {
+          const imageLeft = i % 2 === 0;
+          return (
+            <div
+              key={s.name}
+              className="grid items-center gap-8 md:grid-cols-2 md:gap-20"
+            >
+              {/* Image (DOM-il first, so mobile-il image mukalil) */}
+              <FadeUp className={imageLeft ? "md:order-1" : "md:order-2"}>
+                <div className="group aspect-[4/3] overflow-hidden rounded-2xl bg-mint">
+                  <img
+                    src={s.img}
+                    alt={s.name}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                </div>
+              </FadeUp>
+
+              {/* Details */}
+              <div className={imageLeft ? "md:order-2" : "md:order-1"}>
+                <FadeUp delay={100}>
+                  <span className="font-display text-2xl font-normal text-teal">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </FadeUp>
+                <FadeUp delay={200}>
+                  <h3 className="mt-3 font-display text-4xl font-normal uppercase tracking-[0.04em] text-ink md:text-5xl">
+                    {s.name}
+                  </h3>
+                </FadeUp>
+                <FadeUp delay={300}>
+                  <p className="mt-5 max-w-md text-base font-normal leading-loose text-ink/70 md:text-lg">
+                    {s.desc}
+                  </p>
+                </FadeUp>
+              </div>
             </div>
-          </FadeUp>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

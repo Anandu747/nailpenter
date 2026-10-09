@@ -1,9 +1,16 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 import { CATEGORIES } from "@/lib/data";
 import FadeUp from "@/components/FadeUp";
-import { LuArrowRight } from "react-icons/lu";
+import { useCart } from "@/components/CartProvider";
+import { singleEnquiry, waLink } from "@/lib/whatsapp";
+import { LuShoppingBag } from "react-icons/lu";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Categories() {
+  const { add } = useCart();
+
   return (
     <section className="mt-16 px-6 md:px-10">
       {/* Header */}
@@ -41,20 +48,28 @@ export default function Categories() {
                   {c.desc}
                 </p>
 
-                <div className="mt-6 flex items-center justify-between">
-                  <p className="text-2xl font-medium text-teal-dark">
-                    from {c.price}
-                  </p>
+                <p className="mt-6 text-2xl font-medium text-teal-dark">
+                  from {c.price}
+                </p>
+
+                <div className="mt-4 flex gap-2">
                   <a
-                    href="#contact"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition hover:text-teal"
+                    href={waLink(singleEnquiry(c.title, c.price))}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:brightness-95"
                   >
-                    See prices
-                    <LuArrowRight
-                      size={16}
-                      className="transition group-hover:translate-x-1"
-                    />
+                    <FaWhatsapp size={18} />
+                    WhatsApp
                   </a>
+                  <button
+                    type="button"
+                    onClick={() => add({ title: c.title, price: c.price })}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-ink px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-teal-dark"
+                  >
+                    <LuShoppingBag size={16} />
+                    Add to cart
+                  </button>
                 </div>
               </div>
             </article>

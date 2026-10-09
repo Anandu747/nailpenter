@@ -12,6 +12,7 @@ import WhoWeAre from "@/components/WhoWeAre";
 import VisionMission from "@/components/VisionMission";
 import Faq from "@/components/Faq";
 import Reviews from "@/components/Reviews";
+import InstagramReels from "@/components/InstagramReels";
 
 export default function Home() {
   return (
@@ -32,10 +33,11 @@ export default function Home() {
         
         <WhoWeAre />
         <VisionMission />
-        <Faq />
         <Reviews />
+        <Faq />
         {/* <Highlights /> */}
         {/* <HoursCta /> */}
+        <InstagramReels />
         <Footer />
       </div>
     </main>

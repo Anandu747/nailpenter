@@ -21,12 +21,36 @@ export const FEATURES = [
 ];
 
 export const SERVICES = [
-  { name: "Gel Manicure", img: IMG.gel, tall: true },
-  { name: "Nail Art", img: IMG.art, tall: false },
-  { name: "Pedicure", img: IMG.pedi, tall: false },
-  { name: "Nail Extensions", img: IMG.ext, tall: true },
-  { name: "Press-on Nails", img: IMG.gel, tall: true },
-  { name: "Lash Extensions", img: IMG.art, tall: false },
+  {
+    name: "Gel Manicure",
+    img: IMG.gel,
+    desc: "Glossy, chip-resistant colour that lasts for weeks. Clean shaping, careful prep and a finish that looks fresh every day.",
+  },
+  {
+    name: "Nail Art",
+    img: IMG.art,
+    desc: "Hand-designed art made around your idea, from subtle accents to full statement sets. Bring a reference and we'll recreate it.",
+  },
+  {
+    name: "Pedicure",
+    img: IMG.pedi,
+    desc: "A relaxing clean-up for your feet, with sterilized tools, gentle care and a neat polish finish.",
+  },
+  {
+    name: "Nail Extensions",
+    img: IMG.ext,
+    desc: "Length and shape exactly the way you want it, built to feel light and look natural.",
+  },
+  {
+    name: "Press-on Nails",
+    img: IMG.gel,
+    desc: "Handmade, reusable sets made to your size and style. Wear a salon-style look at home in minutes.",
+  },
+  {
+    name: "Lash Extensions",
+    img: IMG.art,
+    desc: "Classic and hybrid lashes that lift your eyes and still look like you. Applied with care and non-toxic products.",
+  },
 ];
 
 export const HOURS = [

@@ -20,7 +20,7 @@ export default function About() {
             </FadeUp>
 
             <FadeUp delay={100}>
-              <h2 className="mt-3 font-display text-5xl font-light uppercase leading-[1.05] tracking-[0.04em] text-ink md:text-7xl">
+              <h2 className="mt-3 font-display text-5xl font-normal uppercase leading-[1.05] tracking-[0.04em] text-ink md:text-7xl">
                 Handcrafted
                 <br />
                 In {CONTACT.location}
@@ -31,8 +31,8 @@ export default function About() {
               <p className="mt-10 max-w-md text-[15px] leading-relaxed text-ink/70">
                 Nailbento by Soniya is a Kochi-based nail studio for nails,
                 lashes and more. Every set is designed around what you want,
-                from clean everyday looks to detailed nail art, and we also
-                make handmade press-on nails you can wear at home.
+                from clean everyday looks to detailed nail art, and we also make
+                handmade press-on nails you can wear at home.
               </p>
             </FadeUp>
 
@@ -52,7 +52,7 @@ export default function About() {
             <div className="mt-16 flex flex-wrap gap-x-12 gap-y-8 border-t border-ink/20 pt-8">
               {ABOUT_STATS.map((s, i) => (
                 <FadeUp key={s.label} delay={400 + i * 120}>
-                  <p className="whitespace-nowrap font-display text-3xl font-light leading-tight text-ink md:text-4xl">
+                  <p className="whitespace-nowrap font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
                     {s.value}
                   </p>
                   <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
