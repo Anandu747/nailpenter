@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { LuHeart, LuPalette, LuShieldCheck } from "react-icons/lu";
-import ScrollReveal from "@/components/ScrollReveal";
+import FadeUp from "@/components/FadeUp";
 
 const unsplash = (id: string) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1000&q=80`;
@@ -29,9 +29,6 @@ const PILLARS = [
   },
 ];
 
-const DELAYS = ["", "reveal-delay-100", "reveal-delay-200"] as const;
-const DIRECTIONS = ["left", "up", "right"] as const;
-
 export default function WhoWeAre() {
   return (
     <section
@@ -40,76 +37,78 @@ export default function WhoWeAre() {
     >
       {/* Header */}
       <div className="grid gap-6 md:grid-cols-2 md:items-end md:gap-20">
-        <ScrollReveal direction="left">
-          <div>
+        <div>
+          <FadeUp>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
               Who We Are
             </p>
+          </FadeUp>
+          <FadeUp delay={100}>
             <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
               A Kochi studio for
               <br />
               nails you&apos;ll love.
             </h2>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal direction="right">
+          </FadeUp>
+        </div>
+
+        <FadeUp delay={200}>
           <p className="max-w-md text-base font-normal leading-loose text-ink/70 md:text-lg">
             We&apos;re a small, passionate nail studio. No rush, no copy-paste
             designs, just clean work, honest prices and a finish you&apos;re
             proud to show off.
           </p>
-        </ScrollReveal>
+        </FadeUp>
       </div>
 
       {/* Image hover cards */}
       <div className="mt-14 rounded-[28px] bg-mint p-3 md:mt-20 md:p-4">
         <div className="grid gap-3 md:grid-cols-3 md:gap-4">
           {PILLARS.map((p, i) => (
-            <div
+            <FadeUp
               key={p.title}
-              className="h-[440px] md:h-[560px] [&>div]:h-full"
+              delay={i * 150}
+              className="h-[440px] md:h-[560px]"
             >
-              <ScrollReveal direction={DIRECTIONS[i]} delay={DELAYS[i]}>
-                <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-ink p-8 md:p-10">
-                  {/* Background image */}
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out md:group-hover:scale-105"
-                  />
+              <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-ink p-8 md:p-10">
+                {/* Background image */}
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-700 ease-out md:group-hover:scale-105"
+                />
 
-                  {/* Default gradient (keeps title readable) */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 md:from-black/60 md:via-transparent md:to-black/20" />
+                {/* Default gradient (keeps title readable) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 md:from-black/60 md:via-transparent md:to-black/20" />
 
-                  {/* Hover teal overlay (desktop) */}
-                  <div className="absolute inset-0 bg-teal-dark/90 opacity-0 transition-opacity duration-500 ease-out md:group-hover:opacity-100" />
+                {/* Hover teal overlay (desktop) */}
+                <div className="absolute inset-0 bg-teal-dark/90 opacity-0 transition-opacity duration-500 ease-out md:group-hover:opacity-100" />
 
-                  {/* Top: icon + number */}
-                  <div className="relative z-10 flex items-start justify-between">
-                    <p.icon size={32} strokeWidth={1.25} className="text-white" />
-                    <span className="font-display text-2xl font-normal text-white/70">
-                      {p.no}
-                    </span>
-                  </div>
+                {/* Top: icon + number */}
+                <div className="relative z-10 flex items-start justify-between">
+                  <p.icon size={32} strokeWidth={1.25} className="text-white" />
+                  <span className="font-display text-2xl font-normal text-white/70">
+                    {p.no}
+                  </span>
+                </div>
 
-                  {/* Bottom: title + description (rises on hover) */}
-                  <div className="relative z-10">
-                    <h3 className="font-display text-3xl font-normal text-white md:text-4xl">
-                      {p.title}
-                    </h3>
-                    <div className="grid grid-rows-[1fr] opacity-100 transition-[grid-template-rows,opacity] duration-500 ease-out md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100">
-                      <div className="overflow-hidden">
-                        <p className="pt-4 text-base leading-relaxed text-white/90 transition-transform duration-500 ease-out md:translate-y-6 md:group-hover:translate-y-0">
-                          {p.text}
-                        </p>
-                      </div>
+                {/* Bottom: title + description (rises on hover) */}
+                <div className="relative z-10">
+                  <h3 className="font-display text-3xl font-normal text-white md:text-4xl">
+                    {p.title}
+                  </h3>
+                  <div className="grid grid-rows-[1fr] opacity-100 transition-[grid-template-rows,opacity] duration-500 ease-out md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100">
+                    <div className="overflow-hidden">
+                      <p className="pt-4 text-base leading-relaxed text-white/90 transition-transform duration-500 ease-out md:translate-y-6 md:group-hover:translate-y-0">
+                        {p.text}
+                      </p>
                     </div>
                   </div>
-                </article>
-              </ScrollReveal>
-            </div>
+                </div>
+              </article>
+            </FadeUp>
           ))}
         </div>
       </div>

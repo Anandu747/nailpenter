@@ -1,7 +1,7 @@
 "use client";
 
 import { LuStar } from "react-icons/lu";
-import ScrollReveal from "@/components/ScrollReveal";
+import FadeUp from "@/components/FadeUp";
 
 type Review = { name: string; text: string };
 
@@ -48,8 +48,8 @@ function ReviewCard({ r }: { r: Review }) {
             ))}
           </div>
           <p className="mt-5 text-base font-normal leading-relaxed text-ink/80 md:text-[17px]">
-  &ldquo;{r.text}&rdquo;
-</p>
+            &ldquo;{r.text}&rdquo;
+          </p>
         </div>
 
         <div className="mt-8 flex items-center gap-3 border-t border-ink/10 pt-5">
@@ -76,29 +76,32 @@ export default function Reviews() {
 
   return (
     <section id="reviews" className="mt-28 md:mt-40">
-      {/* Header: split reveal */}
+      {/* Header */}
       <div className="mx-auto grid max-w-[1440px] gap-6 px-6 md:grid-cols-2 md:items-end md:gap-20 md:px-16 lg:px-24">
-        <ScrollReveal direction="left">
-          <div>
+        <div>
+          <FadeUp>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
               Reviews
             </p>
+          </FadeUp>
+          <FadeUp delay={100}>
             <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
               Loved by
               <br />
               our clients.
             </h2>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal direction="right">
+          </FadeUp>
+        </div>
+
+        <FadeUp delay={200}>
           <p className="max-w-md text-base font-normal leading-loose text-ink/70 md:text-lg">
             Real words from real clients, straight from Google.
           </p>
-        </ScrollReveal>
+        </FadeUp>
       </div>
 
       {/* Single marquee row */}
-      <ScrollReveal direction="up">
+      <FadeUp delay={300}>
         <div className="reviews-fade reviews-marquee mt-14 overflow-hidden py-2 md:mt-20">
           <div className="reviews-track flex w-max">
             {loop.map((r, i) => (
@@ -106,7 +109,7 @@ export default function Reviews() {
             ))}
           </div>
         </div>
-      </ScrollReveal>
+      </FadeUp>
     </section>
   );
 }

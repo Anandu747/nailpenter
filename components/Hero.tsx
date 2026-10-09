@@ -7,7 +7,7 @@ const SLIDE_DURATION = 8000; // ms per video
 const slides = [
   {
     video: "/showcase.mp4",
-    eyebrow: "Nailbento by Soniya",
+    eyebrow: "Nailpenter by Soniya",
     title: "Luxury Nail Care",
     cta: { label: "Book Your Set", href: "#booking" },
   },

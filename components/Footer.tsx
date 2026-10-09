@@ -119,7 +119,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-3 border-t border-white/15 py-8 text-xs font-medium uppercase tracking-[0.2em] text-white/40 md:flex-row">
           <p>
-            © {new Date().getFullYear()} Nailbento by Soniya. All rights
+            © {new Date().getFullYear()} Nailpenter by Soniya. All rights
             reserved.
           </p>
           <a href="#" className="transition hover:text-teal">

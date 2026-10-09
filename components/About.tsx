@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { ABOUT_STATS, CONTACT, IMG } from "@/lib/data";
-import ScrollReveal from "@/components/ScrollReveal";
+import FadeUp from "@/components/FadeUp";
 import { LuArrowRight } from "react-icons/lu";
 
 export default function About() {
@@ -12,24 +12,31 @@ export default function About() {
       <div className="mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
         <div className="grid gap-x-20 gap-y-16 md:grid-cols-2 md:items-start lg:gap-x-40">
           {/* Text block (left) */}
-          <ScrollReveal direction="left" as="div">
-            <div className="md:pr-10">
+          <div className="md:pr-10">
+            <FadeUp>
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/70">
                 Our Story
               </p>
+            </FadeUp>
+
+            <FadeUp delay={100}>
               <h2 className="mt-3 font-display text-5xl font-light uppercase leading-[1.05] tracking-[0.04em] text-ink md:text-7xl">
                 Handcrafted
                 <br />
                 In {CONTACT.location}
               </h2>
+            </FadeUp>
 
+            <FadeUp delay={200}>
               <p className="mt-10 max-w-md text-[15px] leading-relaxed text-ink/70">
                 Nailbento by Soniya is a Kochi-based nail studio for nails,
                 lashes and more. Every set is designed around what you want,
                 from clean everyday looks to detailed nail art, and we also
                 make handmade press-on nails you can wear at home.
               </p>
+            </FadeUp>
 
+            <FadeUp delay={300}>
               <a
                 href={CONTACT.instagram}
                 target="_blank"
@@ -39,25 +46,25 @@ export default function About() {
                 DM to book
                 <LuArrowRight size={16} />
               </a>
+            </FadeUp>
 
-              {/* Stats */}
-              <div className="mt-16 flex flex-wrap gap-x-12 gap-y-8 border-t border-ink/20 pt-8">
-                {ABOUT_STATS.map((s) => (
-                  <div key={s.label}>
-                    <p className="whitespace-nowrap font-display text-3xl font-light leading-tight text-ink md:text-4xl">
-                      {s.value}
-                    </p>
-                    <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
-                      {s.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            {/* Stats */}
+            <div className="mt-16 flex flex-wrap gap-x-12 gap-y-8 border-t border-ink/20 pt-8">
+              {ABOUT_STATS.map((s, i) => (
+                <FadeUp key={s.label} delay={400 + i * 120}>
+                  <p className="whitespace-nowrap font-display text-3xl font-light leading-tight text-ink md:text-4xl">
+                    {s.value}
+                  </p>
+                  <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
+                    {s.label}
+                  </p>
+                </FadeUp>
+              ))}
             </div>
-          </ScrollReveal>
+          </div>
 
           {/* Image (right) */}
-          <ScrollReveal direction="right" as="div">
+          <FadeUp delay={200}>
             <figure>
               <div className="aspect-[3/4] overflow-hidden rounded-[4px] bg-mint">
                 <img
@@ -70,7 +77,7 @@ export default function About() {
                 Soniya, Founder &amp; Nail Artist
               </figcaption>
             </figure>
-          </ScrollReveal>
+          </FadeUp>
         </div>
       </div>
     </section>

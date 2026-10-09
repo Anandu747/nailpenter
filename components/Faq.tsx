@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { LuPlus } from "react-icons/lu";
-import ScrollReveal from "@/components/ScrollReveal";
+import FadeUp from "@/components/FadeUp";
 
 const FAQS = [
   {
@@ -40,31 +40,35 @@ export default function Faq() {
       className="mx-auto mt-28 max-w-[1440px] px-6 md:mt-40 md:px-16 lg:px-24"
     >
       <div className="grid gap-12 md:grid-cols-[1fr_1.4fr] md:gap-20">
-        {/* Left: heading — slides from left */}
-        <ScrollReveal direction="left" as="div">
-          <div className="md:sticky md:top-28 md:self-start">
+        {/* Left: heading (sticky wrapper outside, FadeUp inside) */}
+        <div className="md:sticky md:top-28 md:self-start">
+          <FadeUp>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
               FAQ
             </p>
+          </FadeUp>
+          <FadeUp delay={100}>
             <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
               Got questions?
               <br />
               We&apos;ve got answers.
             </h2>
+          </FadeUp>
+          <FadeUp delay={200}>
             <p className="mt-8 max-w-sm text-base font-normal leading-loose text-ink/70 md:text-lg">
               Everything you need to know before your first visit. Still unsure?
               Just DM us.
             </p>
-          </div>
-        </ScrollReveal>
+          </FadeUp>
+        </div>
 
-        {/* Right: accordion — slides from right */}
-        <ScrollReveal direction="right" as="div">
-          <div className="border-t border-ink/15">
-            {FAQS.map((f, i) => {
-              const open = openIndex === i;
-              return (
-                <div key={f.q} className="border-b border-ink/15">
+        {/* Right: accordion */}
+        <div className="border-t border-ink/15">
+          {FAQS.map((f, i) => {
+            const open = openIndex === i;
+            return (
+              <FadeUp key={f.q} delay={i * 100}>
+                <div className="border-b border-ink/15">
                   <button
                     type="button"
                     onClick={() => setOpenIndex(open ? null : i)}
@@ -95,10 +99,10 @@ export default function Faq() {
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </ScrollReveal>
+              </FadeUp>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
