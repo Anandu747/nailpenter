@@ -282,6 +282,7 @@ const FlexCarousel = ({
   captureWheel = true,
   onChange,
   onSelect,
+  onError,
   className = '',
   style
 }) => {
@@ -289,7 +290,7 @@ const FlexCarousel = ({
   const settingsRef = useRef(null);
   const itemsRef = useRef(items);
   const engineRef = useRef(null);
-  const callbacksRef = useRef({ onChange, onSelect });
+  const callbacksRef = useRef({ onChange, onSelect, onError });
   const [active, setActive] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [focusOpen, setFocusOpen] = useState(false);
@@ -346,10 +347,12 @@ const FlexCarousel = ({
         depth: false
       });
     } catch {
+      callbacksRef.current.onError?.(err); 
       return undefined;
     }
     const gl = renderer.gl;
     if (!gl || !renderer.isWebgl2) {
+      callbacksRef.current.onError?.();
       try { gl?.getExtension('WEBGL_lose_context')?.loseContext(); } catch {}
       return undefined;
     }

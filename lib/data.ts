@@ -5,6 +5,7 @@ export const IMG = {
   pedi: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&q=80",
   ext: "https://images.unsplash.com/photo-1612887390768-fb02affea7a6?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   owner: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80",
+  hair: "https://images.unsplash.com/photo-1634449571017-5fecfd26ad76?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 };
 
 export const NAV_LINKS = [
@@ -51,6 +52,11 @@ export const SERVICES = [
     img: IMG.art,
     desc: "Classic and hybrid lashes that lift your eyes and still look like you. Applied with care and non-toxic products.",
   },
+    {
+    name: "Hair Extensions",
+    img: IMG.hair,
+    desc: "Natural-looking length and volume, blended to match your own hair. Fitted with care so it feels light and looks like yours.",
+  },
 ];
 
 export const HOURS = [
@@ -96,5 +102,12 @@ export const CATEGORIES = [
     price: "₹599",
     img: IMG.ext,
     bg: "bg-mint",
+  },
+  {
+    title: "Hair Extensions",
+    desc: "Natural-looking length and volume, blended to match your own hair.",
+    price: "₹1,499",
+    img: IMG.hair,
+    bg: "bg-[#d6ece7]",
   },
 ];

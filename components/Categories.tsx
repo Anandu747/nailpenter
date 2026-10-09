@@ -28,7 +28,7 @@ export default function Categories() {
       </FadeUp>
 
       {/* Cards grid */}
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {CATEGORIES.map((c, i) => (
           <FadeUp key={c.title} delay={i * 150} className="h-full">
             <article
@@ -57,17 +57,17 @@ export default function Categories() {
                     href={waLink(singleEnquiry(c.title, c.price))}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:brightness-95"
+                    aria-label={`Enquire about ${c.title} on WhatsApp`}
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[#25D366] bg-white text-[#25D366] transition hover:bg-[#25D366] hover:text-white"
                   >
-                    <FaWhatsapp size={18} />
-                    WhatsApp
+                    <FaWhatsapp size={22} />
                   </a>
                   <button
                     type="button"
                     onClick={() => add({ title: c.title, price: c.price })}
-                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-ink px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-teal-dark"
+                    className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-ink px-4 text-sm font-semibold text-white transition hover:bg-teal-dark"
                   >
-                    <LuShoppingBag size={16} />
+                    <LuShoppingBag size={18} />
                     Add to cart
                   </button>
                 </div>
