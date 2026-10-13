@@ -5,7 +5,12 @@ export const IMG = {
   pedi: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&q=80",
   ext: "https://images.unsplash.com/photo-1612887390768-fb02affea7a6?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   owner: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80",
-  hair: "https://images.unsplash.com/photo-1634449571017-5fecfd26ad76?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  hair: "https://images.unsplash.com/photo-1634449571017-5fecfd26ad76?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  press:"https://images.unsplash.com/photo-1736434518489-0eb84070017f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  lash:"https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  lashes:"https://images.unsplash.com/photo-1735151226446-1d364b4adc2f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  brow:"https://images.unsplash.com/photo-1581003250898-36050e78fcd3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  lip:"https://plus.unsplash.com/premium_photo-1671656333492-bc2b3192a0d3?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
 };
 
 export const NAV_LINKS = [
@@ -21,41 +26,84 @@ export const FEATURES = [
   { title: "Expert Artist", sub: "Skilled & passionate" },
 ];
 
+// export const SERVICES = [
+//   {
+//     name: "Gel Manicure",
+//     img: IMG.gel,
+//     desc: "Glossy, chip-resistant colour that lasts for weeks. Clean shaping, careful prep and a finish that looks fresh every day.",
+//   },
+//   {
+//     name: "Nail Art",
+//     img: IMG.art,
+//     desc: "Hand-designed art made around your idea, from subtle accents to full statement sets. Bring a reference and we'll recreate it.",
+//   },
+//   {
+//     name: "Pedicure",
+//     img: IMG.pedi,
+//     desc: "A relaxing clean-up for your feet, with sterilized tools, gentle care and a neat polish finish.",
+//   },
+//   {
+//     name: "Nail Extensions",
+//     img: IMG.ext,
+//     desc: "Length and shape exactly the way you want it, built to feel light and look natural.",
+//   },
+//   {
+//     name: "Press-on Nails",
+//     img: IMG.gel,
+//     desc: "Handmade, reusable sets made to your size and style. Wear a salon-style look at home in minutes.",
+//   },
+//   {
+//     name: "Lash Extensions",
+//     img: IMG.art,
+//     desc: "Classic and hybrid lashes that lift your eyes and still look like you. Applied with care and non-toxic products.",
+//   },
+//     {
+//     name: "Hair Extensions",
+//     img: IMG.hair,
+//     desc: "Natural-looking length and volume, blended to match your own hair. Fitted with care so it feels light and looks like yours.",
+//   },
+// ];
+
 export const SERVICES = [
-  {
-    name: "Gel Manicure",
-    img: IMG.gel,
-    desc: "Glossy, chip-resistant colour that lasts for weeks. Clean shaping, careful prep and a finish that looks fresh every day.",
-  },
-  {
-    name: "Nail Art",
-    img: IMG.art,
-    desc: "Hand-designed art made around your idea, from subtle accents to full statement sets. Bring a reference and we'll recreate it.",
-  },
-  {
-    name: "Pedicure",
-    img: IMG.pedi,
-    desc: "A relaxing clean-up for your feet, with sterilized tools, gentle care and a neat polish finish.",
-  },
   {
     name: "Nail Extensions",
     img: IMG.ext,
     desc: "Length and shape exactly the way you want it, built to feel light and look natural.",
   },
   {
-    name: "Press-on Nails",
+    name: "Gel Manicure",
     img: IMG.gel,
+    desc: "Glossy, chip-resistant colour that lasts for weeks. Clean shaping, careful prep and a finish that looks fresh every day.",
+  },
+  {
+    name: "Press-on Nails",
+    img: IMG.press,
     desc: "Handmade, reusable sets made to your size and style. Wear a salon-style look at home in minutes.",
   },
   {
     name: "Lash Extensions",
-    img: IMG.art,
+    img: IMG.lashes,
     desc: "Classic and hybrid lashes that lift your eyes and still look like you. Applied with care and non-toxic products.",
   },
-    {
-    name: "Hair Extensions",
+  {
+    name: "Lash Lifting",
+    img: IMG.lash,
+    desc: "Your natural lashes curled upward for a wide-awake look, with no extensions needed. Soft, neat and low maintenance.",
+  },
+  {
+    name: "Brow Lamination",
+    img: IMG.brow,
+    desc: "Brows brushed up and set in shape for a fuller, polished look that stays neat for weeks.",
+  },
+  {
+    name: "Lip Tinting",
+    img: IMG.lip,
+    desc: "A soft, natural flush of colour for your lips, so you wake up looking fresh without the daily touch-ups.",
+  },
+  {
+    name: "More Beauty Services",
     img: IMG.hair,
-    desc: "Natural-looking length and volume, blended to match your own hair. Fitted with care so it feels light and looks like yours.",
+    desc: "Looking for something else? Ask us about our other beauty treatments and we'll help you pick what suits you.",
   },
 ];
 

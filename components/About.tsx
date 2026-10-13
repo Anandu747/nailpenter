@@ -21,18 +21,26 @@ export default function About() {
 
             <FadeUp delay={100}>
               <h2 className="mt-3 font-display text-5xl font-normal uppercase leading-[1.05] tracking-[0.04em] text-ink md:text-7xl">
-                Handcrafted
+                A Vision Born
                 <br />
-                In {CONTACT.location}
+                from Creativity
               </h2>
             </FadeUp>
 
             <FadeUp delay={200}>
               <p className="mt-10 max-w-md text-[15px] leading-relaxed text-ink/70">
-                Nailbento by Soniya is a Kochi-based nail studio for nails,
-                lashes and more. Every set is designed around what you want,
-                from clean everyday looks to detailed nail art, and we also make
-                handmade press-on nails you can wear at home.
+                Founded by Soniya Mahesh in 2022, Nail Penter began as her step
+                into entrepreneurship at the age of 21. The brand was built
+                around a distinctive name and the idea of creating an identity
+                that stands apart. Inspired by the word Carpenter, the name Nail
+                Penter brings a fresh perspective to the concept of
+                craftsmanship. By reimagining the word through the lens of
+                nails, Soniya gave her brand a name that is memorable,
+                expressive, and uniquely its own. For Soniya, starting Nail
+                Penter marked the beginning of building something independently
+                — a brand with its own identity and a story that continues to
+                evolve. Since 2022, it has represented her journey from an idea
+                to a business shaped by her vision and entrepreneurial spirit.
               </p>
             </FadeUp>
 

@@ -24,8 +24,10 @@ export default function Home() {
         {/* <Features /> */}
         <About />
         <Categories />
-        <Services />
+        
       </div>
+
+      <Services />
 
       <Showcase />
 
@@ -34,9 +36,11 @@ export default function Home() {
         <WhoWeAre />
         <VisionMission />
         <Reviews />
+        </div>
         <Faq />
         {/* <Highlights /> */}
         {/* <HoursCta /> */}
+        <div className="mx-auto max-w-[1440px]">
         <InstagramReels />
         <Footer />
       </div>
