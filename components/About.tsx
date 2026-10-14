@@ -7,12 +7,12 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative left-1/2 mt-8 w-screen -translate-x-1/2 bg-white py-24 md:mt-12 md:py-36"
+      className="relative left-1/2 flex w-screen -translate-x-1/2 items-center py-10 md:min-h-screen md:py-12"
     >
-      <div className="mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
-        <div className="grid gap-x-20 gap-y-16 md:grid-cols-2 md:items-start lg:gap-x-40">
+      <div className="mx-auto w-full max-w-[1440px] px-6 md:px-16 lg:px-24">
+        <div className="grid gap-x-16 gap-y-10 md:grid-cols-2 md:items-center lg:gap-x-28">
           {/* Text block (left) */}
-          <div className="md:pr-10">
+          <div>
             <FadeUp>
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink/70">
                 Our Story
@@ -20,7 +20,7 @@ export default function About() {
             </FadeUp>
 
             <FadeUp delay={100}>
-              <h2 className="mt-3 font-display text-5xl font-normal uppercase leading-[1.05] tracking-[0.04em] text-ink md:text-7xl">
+              <h2 className="mt-3 whitespace-nowrap font-display text-4xl font-normal uppercase leading-[1.05] tracking-[0.04em] text-ink md:text-5xl lg:text-6xl">
                 A Vision Born
                 <br />
                 from Creativity
@@ -28,7 +28,7 @@ export default function About() {
             </FadeUp>
 
             <FadeUp delay={200}>
-              <p className="mt-10 max-w-md text-[15px] leading-relaxed text-ink/70">
+              <p className="mt-6 max-w-lg text-[14px] leading-relaxed text-ink/70">
                 Founded by Soniya Mahesh in 2022, Nail Penter began as her step
                 into entrepreneurship at the age of 21. The brand was built
                 around a distinctive name and the idea of creating an identity
@@ -49,7 +49,7 @@ export default function About() {
                 href={CONTACT.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-10 inline-flex w-fit items-center gap-3 border border-ink/40 px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink transition hover:border-ink hover:bg-ink hover:text-white"
+                className="mt-6 inline-flex w-fit items-center gap-3 border border-ink/40 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink transition hover:border-ink hover:bg-ink hover:text-white"
               >
                 DM to book
                 <LuArrowRight size={16} />
@@ -57,13 +57,13 @@ export default function About() {
             </FadeUp>
 
             {/* Stats */}
-            <div className="mt-16 flex flex-wrap gap-x-12 gap-y-8 border-t border-ink/20 pt-8">
+            <div className="mt-8 flex flex-wrap gap-x-10 gap-y-6 border-t border-ink/20 pt-6">
               {ABOUT_STATS.map((s, i) => (
                 <FadeUp key={s.label} delay={400 + i * 120}>
-                  <p className="whitespace-nowrap font-display text-3xl font-medium leading-tight text-ink md:text-4xl">
+                  <p className="whitespace-nowrap font-display text-2xl font-medium leading-tight text-ink md:text-3xl">
                     {s.value}
                   </p>
-                  <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.2em] text-ink/60">
                     {s.label}
                   </p>
                 </FadeUp>
@@ -74,14 +74,14 @@ export default function About() {
           {/* Image (right) */}
           <FadeUp delay={200}>
             <figure>
-              <div className="aspect-[3/4] overflow-hidden rounded-[4px] bg-mint">
+              <div className="aspect-[4/5] max-h-[70vh] w-full overflow-hidden rounded-[4px] bg-mint">
                 <img
                   src={IMG.owner}
                   alt="Soniya, nail artist and owner"
                   className="h-full w-full object-cover object-top"
                 />
               </div>
-              <figcaption className="mt-5 text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
+              <figcaption className="mt-4 text-[11px] font-medium uppercase tracking-[0.3em] text-ink/50">
                 Soniya, Founder &amp; Nail Artist
               </figcaption>
             </figure>

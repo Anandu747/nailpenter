@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { LuPlus } from "react-icons/lu";
 import FadeUp from "@/components/FadeUp";
 
@@ -38,88 +37,71 @@ export default function Faq() {
   return (
     <section
       id="faq"
-      className="relative mt-28 overflow-clip bg-[#fff6f8] py-20 md:mt-40 md:py-32"
+      className="mx-auto mt-28 max-w-[1440px] px-6 md:mt-40 md:px-16 lg:px-24"
     >
-      {/* ---------- Background image ---------- */}
-      <div className="pointer-events-none absolute inset-0 select-none">
-        <Image
-          src="/flower_plant.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-          aria-hidden
-        />
-        {/* mobile-il text readable aakan light overlay */}
-        <div className="absolute inset-0 bg-white/35 md:bg-transparent" />
-      </div>
+      <div className="grid gap-12 md:grid-cols-[1fr_1.4fr] md:gap-20">
+        {/* Left: heading (sticky wrapper outside, FadeUp inside) */}
+        <div className="md:sticky md:top-28 md:self-start">
+          <FadeUp>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
+              FAQ
+            </p>
+          </FadeUp>
+          <FadeUp delay={100}>
+            <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
+              Got questions?
+              <br />
+              We&apos;ve got answers.
+            </h2>
+          </FadeUp>
+          <FadeUp delay={200}>
+            <p className="mt-8 max-w-sm text-base font-normal leading-loose text-ink/70 md:text-lg">
+              Everything you need to know before your first visit. Still unsure?
+              Just DM us.
+            </p>
+          </FadeUp>
+        </div>
 
-      {/* ---------- Content ---------- */}
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
-        <div className="grid gap-12 md:grid-cols-[1fr_1.4fr] md:gap-20">
-          {/* Left: heading */}
-          <div className="md:sticky md:top-28 md:self-start">
-            <FadeUp>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal-dark">
-                FAQ
-              </p>
-            </FadeUp>
-            <FadeUp delay={100}>
-              <h2 className="mt-6 font-display text-5xl font-normal leading-[1.05] text-ink md:text-7xl">
-                Got questions?
-                <br />
-                We&apos;ve got answers.
-              </h2>
-            </FadeUp>
-            <FadeUp delay={200}>
-              <p className="mt-8 max-w-sm text-base font-normal leading-loose text-ink/70 md:text-lg">
-                Everything you need to know before your first visit. Still
-                unsure? Just DM us.
-              </p>
-            </FadeUp>
-          </div>
-
-          {/* Right: accordion */}
-          <div className="border-t border-rose-300/50">
-            {FAQS.map((f, i) => {
-              const open = openIndex === i;
-              return (
-                <FadeUp key={f.q} delay={i * 100}>
-                  <div className="border-b border-rose-300/50">
-                    <button
-                      type="button"
-                      onClick={() => setOpenIndex(open ? null : i)}
-                      aria-expanded={open}
-                      className="flex w-full items-center justify-between gap-6 py-7 text-left md:py-8"
-                    >
-                      <span className="font-display text-2xl font-normal text-ink md:text-3xl">
-                        {f.q}
-                      </span>
-                      <LuPlus
-                        size={26}
-                        strokeWidth={1.25}
-                        className={`shrink-0 text-teal transition-transform duration-300 ${
-                          open ? "rotate-45" : ""
-                        }`}
-                      />
-                    </button>
-
-                    <div
-                      className={`grid transition-all duration-300 ${
-                        open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        {/* Right: accordion */}
+        <div className="border-t border-ink/15">
+          {FAQS.map((f, i) => {
+            const open = openIndex === i;
+            return (
+              <FadeUp key={f.q} delay={i * 100}>
+                <div className="border-b border-ink/15">
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(open ? null : i)}
+                    aria-expanded={open}
+                    className="flex w-full items-center justify-between gap-6 py-7 text-left md:py-8"
+                  >
+                    <span className="font-display text-2xl font-normal text-ink md:text-3xl">
+                      {f.q}
+                    </span>
+                    <LuPlus
+                      size={26}
+                      strokeWidth={1.25}
+                      className={`shrink-0 text-teal transition-transform duration-300 ${
+                        open ? "rotate-45" : ""
                       }`}
-                    >
-                      <div className="overflow-hidden">
-                        <p className="max-w-xl pb-8 text-base font-normal leading-loose text-ink/70">
-                          {f.a}
-                        </p>
-                      </div>
+                    />
+                  </button>
+
+                  <div
+                    className={`grid transition-all duration-300 ${
+                      open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="max-w-xl pb-8 text-base font-normal leading-loose text-ink/70">
+                        {f.a}
+                      </p>
                     </div>
                   </div>
-                </FadeUp>
-              );
-            })}
-          </div>
+                </div>
+              </FadeUp>
+            );
+          })}
         </div>
       </div>
     </section>

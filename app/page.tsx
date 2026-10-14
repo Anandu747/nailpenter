@@ -13,6 +13,7 @@ import VisionMission from "@/components/VisionMission";
 import Faq from "@/components/Faq";
 import Reviews from "@/components/Reviews";
 import InstagramReels from "@/components/InstagramReels";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
       <div className="mx-auto max-w-[1440px]">
         
         <WhoWeAre />
+        <Gallery />
         <VisionMission />
         <Reviews />
         </div>

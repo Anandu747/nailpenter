@@ -81,8 +81,11 @@ export default function Navbar() {
 
         {/* Desktop CTA (right, outside pill) */}
         <a
-          href="#contact"
-          className="hidden shrink-0 justify-self-end rounded-full bg-teal-dark px-7 py-3.5 text-[15px] font-semibold text-white transition hover:bg-ink md:inline-block"
+         href="https://wa.me/918111897359?text=Hi%20Nailbento%2C%20I%27d%20like%20to%20book%20an%20appointment."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hidden shrink-0 justify-self-end rounded-full bg-teal-dark px-7 py-3.5 text-[15px] font-semibold text-white transition hover:bg-ink md:inline-block"
+          
         >
           Book Now
         </a>

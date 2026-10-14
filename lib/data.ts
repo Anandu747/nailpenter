@@ -10,7 +10,11 @@ export const IMG = {
   lash:"https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   lashes:"https://images.unsplash.com/photo-1735151226446-1d364b4adc2f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   brow:"https://images.unsplash.com/photo-1581003250898-36050e78fcd3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
-  lip:"https://plus.unsplash.com/premium_photo-1671656333492-bc2b3192a0d3?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+  lip:"https://plus.unsplash.com/premium_photo-1671656333492-bc2b3192a0d3?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  mani:"https://images.unsplash.com/photo-1587729927069-ef3b7a5ab9b4?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  nail:"https://images.unsplash.com/photo-1588015810531-dd522c9c8bbb?q=80&w=701&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  beauty:"https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  client:"https://images.unsplash.com/photo-1693776529070-2cdea397595b?q=80&w=744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
 };
 
 export const NAV_LINKS = [
@@ -67,12 +71,12 @@ export const FEATURES = [
 export const SERVICES = [
   {
     name: "Nail Extensions",
-    img: IMG.ext,
+    img: IMG.nail,
     desc: "Length and shape exactly the way you want it, built to feel light and look natural.",
   },
   {
     name: "Gel Manicure",
-    img: IMG.gel,
+    img: IMG.mani,
     desc: "Glossy, chip-resistant colour that lasts for weeks. Clean shaping, careful prep and a finish that looks fresh every day.",
   },
   {
@@ -102,7 +106,7 @@ export const SERVICES = [
   },
   {
     name: "More Beauty Services",
-    img: IMG.hair,
+    img: IMG.beauty,
     desc: "Looking for something else? Ask us about our other beauty treatments and we'll help you pick what suits you.",
   },
 ];

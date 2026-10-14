@@ -13,10 +13,10 @@ export default function Showcase() {
         scrollHint="Scroll to explore"
         useWindowScroll
       >
-        <h2 className="text-4xl font-medium text-white md:text-6xl">
-          Every set, made just for you.
-        </h2>
-        <p className="mt-4 max-w-md text-base font-medium text-white md:text-lg">
+        <h2 className="font-sans text-4xl font-light text-white md:text-6xl">
+  Every set, made just for you.
+</h2>
+        <p className="mt-4 max-w-md text-base font-medium text-white md:text-lg"> 
           From clean everyday looks to detailed nail art, designed around what
           you want.
         </p>

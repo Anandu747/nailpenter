@@ -95,10 +95,26 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-body {
+/* body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-inter), sans-serif;
+} */
+
+body {
+  background: var(--paper); /* image load aavunnathinu munpulla fallback */
+  color: var(--ink);
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Full-site watercolour background (fixed, works on iOS too) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("/site-bg.webp") center / cover no-repeat;
+  pointer-events: none;
 }
 
 html,

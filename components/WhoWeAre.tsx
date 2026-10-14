@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { LuHeart, LuPalette, LuShieldCheck } from "react-icons/lu";
 import FadeUp from "@/components/FadeUp";
 
 const unsplash = (id: string) =>
@@ -7,23 +6,20 @@ const unsplash = (id: string) =>
 
 const PILLARS = [
   {
-    icon: LuHeart,
     no: "01",
-    image: unsplash("photo-1604654894610-df63bc536371"),
+    image: unsplash("photo-1690749138086-7422f71dc159"),
     title: "How It Began",
     text: "Nailbento started with Soniya's love for nail art, right here in Kochi. What began as designing sets for friends grew into a studio where every client gets a look made just for her.",
   },
   {
-    icon: LuPalette,
     no: "02",
-    image: unsplash("photo-1519014816548-bf5fe059798b"),
+    image: unsplash("photo-1619607146034-5a05296c8f9a"),
     title: "What We Do",
     text: "Nail extensions, gel and nail art, lashes and more. We also make handmade press-on nails, so you can wear a salon-style set at home.",
   },
   {
-    icon: LuShieldCheck,
     no: "03",
-    image: unsplash("photo-1610992015762-45dca7fa3a85"),
+    image: unsplash("photo-1599206676335-193c82b13c9e"),
     title: "Our Promise",
     text: "Sterilized tools, clean space and non-toxic, cruelty-free products. And if you don't love your set, we'll fix it. Free.",
   },
@@ -71,24 +67,20 @@ export default function WhoWeAre() {
               className="h-[440px] md:h-[560px]"
             >
               <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-ink p-8 md:p-10">
-                {/* Background image */}
+                {/* Background image (blurs on hover) */}
                 <Image
                   src={p.image}
                   alt={p.title}
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover transition-transform duration-700 ease-out md:group-hover:scale-105"
+                  className="object-cover transition-all duration-700 ease-out md:group-hover:scale-110 md:group-hover:blur-md"
                 />
 
-                {/* Default gradient (keeps title readable) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 md:from-black/60 md:via-transparent md:to-black/20" />
+                {/* Gradient (keeps text readable) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 transition-colors duration-500 md:from-black/60 md:via-transparent md:to-black/20 md:group-hover:from-black/70 md:group-hover:via-black/40 md:group-hover:to-black/40" />
 
-                {/* Hover teal overlay (desktop) */}
-                <div className="absolute inset-0 bg-teal-dark/90 opacity-0 transition-opacity duration-500 ease-out md:group-hover:opacity-100" />
-
-                {/* Top: icon + number */}
-                <div className="relative z-10 flex items-start justify-between">
-                  <p.icon size={32} strokeWidth={1.25} className="text-white" />
+                {/* Top: number */}
+                <div className="relative z-10 flex items-start justify-end">
                   <span className="font-display text-2xl font-normal text-white/70">
                     {p.no}
                   </span>
