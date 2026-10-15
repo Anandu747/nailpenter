@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { ABOUT_STATS, CONTACT, IMG } from "@/lib/data";
+import { ABOUT_STATS, CONTACT } from "@/lib/data";
 import FadeUp from "@/components/FadeUp";
 import { LuArrowRight } from "react-icons/lu";
 
@@ -76,7 +76,7 @@ export default function About() {
             <figure>
               <div className="aspect-[4/5] max-h-[70vh] w-full overflow-hidden rounded-[4px] bg-mint">
                 <img
-                  src={IMG.owner}
+                  src="/about.png"
                   alt="Soniya, nail artist and owner"
                   className="h-full w-full object-cover object-top"
                 />

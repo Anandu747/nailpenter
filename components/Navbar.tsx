@@ -40,18 +40,20 @@ export default function Navbar() {
   }, []);
 
   return (
+    // CHANGE 1: pointer-events-none, header-inte empty space click-ine thadayilla
     <header
-      className={`fixed inset-x-0 z-50 px-4 transition-all duration-300 md:px-8 ${
+      className={`pointer-events-none fixed inset-x-0 z-50 px-4 transition-all duration-300 md:px-8 ${
         atTop ? "top-5" : "top-3"
       } ${visible ? "translate-y-0 opacity-100" : "-translate-y-28 opacity-0"}`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
         {/* Logo (left, outside pill) */}
+        {/* CHANGE 2: pointer-events-auto */}
         <Link
           href="/"
           onClick={() => setActive("")}
           aria-label="Nailbento by Soniya home"
-          className="shrink-0 justify-self-start"
+          className="pointer-events-auto shrink-0 justify-self-start"
         >
           <img
             src="/logo.png"
@@ -61,8 +63,9 @@ export default function Navbar() {
         </Link>
 
         {/* Center pill: links only */}
+        {/* CHANGE 3: pointer-events-auto */}
         <nav
-          className={`hidden items-center gap-8 rounded-full bg-white/90 px-8 py-3.5 backdrop-blur-md transition-shadow md:flex ${
+          className={`pointer-events-auto hidden items-center gap-8 rounded-full bg-white/90 px-8 py-3.5 backdrop-blur-md transition-shadow md:flex ${
             atTop ? "shadow-sm" : "shadow-lg"
           }`}
         >
@@ -89,22 +92,24 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTA (right, outside pill) */}
+        {/* CHANGE 4: pointer-events-auto */}
         <a
           href="https://wa.me/918111897359?text=Hi%20Nailbento%2C%20I%27d%20like%20to%20book%20an%20appointment."
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden shrink-0 justify-self-end rounded-full bg-teal-dark px-7 py-3.5 text-[15px] font-semibold text-white transition hover:bg-ink md:inline-block"
+          className="pointer-events-auto hidden shrink-0 justify-self-end rounded-full bg-teal-dark px-7 py-3.5 text-[15px] font-semibold text-white transition hover:bg-ink md:inline-block"
         >
           Book Now
         </a>
 
         {/* Mobile hamburger */}
+        {/* CHANGE 5: pointer-events-auto */}
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-1.5 rounded-full bg-mint md:hidden"
+          className="pointer-events-auto flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-1.5 rounded-full bg-mint md:hidden"
         >
           <span
             className={`h-0.5 w-5 rounded bg-ink transition-all duration-300 ${

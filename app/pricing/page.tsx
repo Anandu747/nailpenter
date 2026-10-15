@@ -26,7 +26,6 @@ export default function PricingPage() {
           alt=""
           className="absolute inset-0 -z-20 h-full w-full object-cover"
         />
-        {/* dark overlay, text readable aakan */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
 
         <div className="px-6 pb-14 pt-36 md:px-10 md:pb-20 md:pt-56">
@@ -38,11 +37,11 @@ export default function PricingPage() {
           <FadeUp delay={100}>
             <p className="mt-3 max-w-xl text-base font-medium leading-relaxed text-white/85 md:text-lg">
               Every service with a clear price, so you know what to expect
-              before you book. Add to cart or enquire on WhatsApp.
+              before you book. Tap the arrow on a card to see prices, then add
+              to cart or enquire on WhatsApp.
             </p>
           </FadeUp>
 
-          {/* Section chips */}
           <nav className="mt-8 flex flex-wrap gap-2">
             {PRICING.map((s) => (
               <a
@@ -76,7 +75,7 @@ export default function PricingPage() {
               </p>
             </FadeUp>
 
-            <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
               {section.groups.map((g, gi) => (
                 <PriceCard
                   key={g.title}
