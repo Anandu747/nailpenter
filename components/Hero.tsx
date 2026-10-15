@@ -9,13 +9,14 @@ const slides = [
     video: "/showcase.mp4",
     eyebrow: "Nailpenter by Soniya",
     title: "Luxury Nail Care",
-    cta: { label: "Book Your Set", href: "#booking" },
+    cta: { label: "Book Your Set", 
+    href: "https://wa.me/918111897359?text=Hi%20Nailbento%2C%20I%27d%20like%20to%20book%20an%20appointment." },
   },
   {
     video: "/showcase1.mp4",
     eyebrow: "Handmade Press-ons",
     title: "Elegant Nails. Effortless Confidence.",
-    cta: { label: "Explore Collection", href: "#highlights" },
+    cta: { label: "Explore Collection", href: "#categories" },
   },
   {
     video: "/showcase2.mp4",

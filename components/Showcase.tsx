@@ -21,7 +21,9 @@ export default function Showcase() {
           you want.
         </p>
         <a
-          href="#contact"
+          href="https://wa.me/918111897359?text=Hi%20Nailbento%2C%20I%27d%20like%20to%20book%20an%20appointment."
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-8 rounded-full bg-black px-8 py-3 text-base font-semibold text-white transition hover:bg-teal-dark"
         >
           Book Now

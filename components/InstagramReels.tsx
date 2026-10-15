@@ -77,8 +77,8 @@ const REELS: CarouselItem[] = [
     alt: "Press-on nails reel",
     title: "Press-on nails",
     subtitle: "Tap to watch on Instagram",
-    url: "https://www.instagram.com/reel/DdjcMhhxYY3/",
-    src: thumb("https://www.instagram.com/reel/DdjcMhhxYY3/"),
+    url: "https://www.instagram.com/reel/DeRqhdKxPV_/?utm_source=ig_web_copy_link&cplk=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
+    src: thumb("https://www.instagram.com/reel/DeRqhdKxPV_/?utm_source=ig_web_copy_link&cplk=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA=="),
   },
   {
     alt: "Lash extensions reel",

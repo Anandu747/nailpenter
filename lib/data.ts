@@ -14,12 +14,29 @@ export const IMG = {
   mani:"https://images.unsplash.com/photo-1587729927069-ef3b7a5ab9b4?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   nail:"https://images.unsplash.com/photo-1588015810531-dd522c9c8bbb?q=80&w=701&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   beauty:"https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
-  client:"https://images.unsplash.com/photo-1693776529070-2cdea397595b?q=80&w=744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+  client:"https://images.unsplash.com/photo-1693776529070-2cdea397595b?q=80&w=744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  shellac:"https://plus.unsplash.com/premium_photo-1671719428436-806b92f38a50?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  feet:"https://plus.unsplash.com/premium_photo-1680348266597-6d89a08d12d7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  thread:"https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  rit:"https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  face:"https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  clean:"https://images.unsplash.com/photo-1731355771317-b2ab72c79124?q=80&w=731&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  detan:"https://images.unsplash.com/photo-1670201203150-bf8771401590?q=80&w=730&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  wax:"https://plus.unsplash.com/premium_photo-1661423984691-5c758efcae1c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  bodywax:"https://plus.unsplash.com/premium_photo-1664187387039-ba5451b2be6f?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  combo:"https://images.unsplash.com/photo-1650177043873-ca284558be52?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  about:"https://plus.unsplash.com/premium_photo-1661432806304-6d6cb7bfa4c1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  brws:"https://plus.unsplash.com/premium_photo-1718626727207-854154e67324?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  lipstick:"https://plus.unsplash.com/premium_photo-1677526496932-1b4bddeee554?q=80&w=784&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  hairexe:"https://images.unsplash.com/photo-1734111719430-fe4a3973f8af?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  skincare:"https://plus.unsplash.com/premium_photo-1674739375749-7efe56fc8bbb?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  nailcombo:"https://images.unsplash.com/photo-1636019411401-82485711b6ba?q=80&w=1089&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
 };
 
 export const NAV_LINKS = [
-  { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Reviews", href: "#reviews" },
   { label: "Faq", href: "#faq" },
 ];
@@ -133,33 +150,79 @@ export const ABOUT_STATS = [
 
 export const ABOUT_TAGS = ["Nails", "Lashes", "Press-on Nails", "Nail Art"];
 
+// export const CATEGORIES = [
+//   {
+//     title: "Nails",
+//     desc: "Gel manicures, nail art and extensions, designed around what you want.",
+//     price: "₹499",
+//     img: IMG.gel,
+//     bg: "bg-mint",
+//   },
+//   {
+//     title: "Lashes",
+//     desc: "A lift for your own lashes, or classic and hybrid extensions that still look like you.",
+//     price: "₹999",
+//     img: IMG.art,
+//     bg: "bg-[#d6ece7]",
+//   },
+//   {
+//     title: "Press-on Nails",
+//     desc: "Handmade, reusable sets made to your size and style, ready to wear at home.",
+//     price: "₹599",
+//     img: IMG.ext,
+//     bg: "bg-mint",
+//   },
+//   {
+//     title: "Hair Extensions",
+//     desc: "Natural-looking length and volume, blended to match your own hair.",
+//     price: "₹1,499",
+//     img: IMG.hair,
+//     bg: "bg-[#d6ece7]",
+//   },
+// ];
+
 export const CATEGORIES = [
   {
     title: "Nails",
-    desc: "Gel manicures, nail art and extensions, designed around what you want.",
-    price: "₹499",
+    desc: "Extensions, gel manicures, shellac and pedicures, designed around what you want.",
+    price: "₹599",
     img: IMG.gel,
     bg: "bg-mint",
   },
   {
-    title: "Lashes",
-    desc: "A lift for your own lashes, or classic and hybrid extensions that still look like you.",
-    price: "₹999",
-    img: IMG.art,
+    title: "Lashes & Brows",
+    desc: "Classic, fluffy and mega volume lashes, lash lifts and brow lamination that still look like you.",
+    price: "₹599",
+    img: IMG.brws,
     bg: "bg-[#d6ece7]",
   },
   {
-    title: "Press-on Nails",
-    desc: "Handmade, reusable sets made to your size and style, ready to wear at home.",
-    price: "₹599",
-    img: IMG.ext,
+    title: "Lips",
+    desc: "Soft lip blush and tinting, with a detailed shape and colour consultation.",
+    price: "₹5,999",
+    img: IMG.lipstick,
     bg: "bg-mint",
   },
   {
-    title: "Hair Extensions",
-    desc: "Natural-looking length and volume, blended to match your own hair.",
-    price: "₹1,499",
-    img: IMG.hair,
+    title: "Hair",
+    desc: "Natural-looking hair extensions and relaxing spa rituals, blended to match your own hair.",
+    price: "₹799",
+    img: IMG.hairexe,
+    bg: "bg-[#d6ece7]",
+  },
+  {
+    title: "Skin & Body",
+    desc: "Facials, clean-ups, de-tan and waxing for fresh, glowing skin.",
+    price: "₹120",
+    img: IMG.skincare,
+    bg: "bg-mint",
+  },
+  {
+    title: "Combos",
+    desc: "Lashes, nails, pedicure and hair spa bundled together, so you get more for less.",
+    price: "₹8,900",
+    img: IMG.nailcombo,
     bg: "bg-[#d6ece7]",
   },
 ];
+

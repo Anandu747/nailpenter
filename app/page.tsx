@@ -44,7 +44,7 @@ export default function Home() {
         {/* <HoursCta /> */}
         <div className="mx-auto max-w-[1440px]">
         <InstagramReels />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </main>
   );

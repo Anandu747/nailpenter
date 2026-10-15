@@ -2,6 +2,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/data";
 
 export default function Navbar() {
@@ -9,7 +11,13 @@ export default function Navbar() {
   const [atTop, setAtTop] = useState(true);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+  const pathname = usePathname();
   const lastY = useRef(0);
+
+  const isLinkActive = (href: string) =>
+    href.startsWith("/#")
+      ? pathname === "/" && active === href
+      : pathname === href;
 
   useEffect(() => {
     const onScroll = () => {
@@ -39,8 +47,9 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
         {/* Logo (left, outside pill) */}
-        <a
-          href="#"
+        <Link
+          href="/"
+          onClick={() => setActive("")}
           aria-label="Nailbento by Soniya home"
           className="shrink-0 justify-self-start"
         >
@@ -49,7 +58,7 @@ export default function Navbar() {
             alt="Nailbento by Soniya"
             className="h-20 w-20 rounded-full object-cover md:h-28 md:w-28"
           />
-        </a>
+        </Link>
 
         {/* Center pill: links only */}
         <nav
@@ -58,9 +67,9 @@ export default function Navbar() {
           }`}
         >
           {NAV_LINKS.map((l) => {
-            const isActive = active === l.href;
+            const isActive = isLinkActive(l.href);
             return (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setActive(l.href)}
@@ -74,18 +83,17 @@ export default function Navbar() {
                     isActive ? "scale-x-100" : "scale-x-0"
                   }`}
                 />
-              </a>
+              </Link>
             );
           })}
         </nav>
 
         {/* Desktop CTA (right, outside pill) */}
         <a
-         href="https://wa.me/918111897359?text=Hi%20Nailbento%2C%20I%27d%20like%20to%20book%20an%20appointment."
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hidden shrink-0 justify-self-end rounded-full bg-teal-dark px-7 py-3.5 text-[15px] font-semibold text-white transition hover:bg-ink md:inline-block"
-          
+          href="https://wa.me/918111897359?text=Hi%20Nailbento%2C%20I%27d%20like%20to%20book%20an%20appointment."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden shrink-0 justify-self-end rounded-full bg-teal-dark px-7 py-3.5 text-[15px] font-semibold text-white transition hover:bg-ink md:inline-block"
         >
           Book Now
         </a>
@@ -116,7 +124,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile dropdown (unchanged) */}
+      {/* Mobile dropdown */}
       <div
         className={`mx-auto mt-3 max-w-5xl origin-top rounded-3xl bg-white/95 p-5 shadow-xl backdrop-blur-md transition-all duration-200 md:hidden ${
           open
@@ -126,26 +134,28 @@ export default function Navbar() {
       >
         <nav className="flex flex-col gap-1 text-base font-medium">
           {NAV_LINKS.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               onClick={() => {
                 setActive(l.href);
                 setOpen(false);
               }}
-              className="rounded-xl px-3 py-3 transition hover:bg-teal/10 hover:text-teal"
+              className={`rounded-xl px-3 py-3 transition hover:bg-teal/10 hover:text-teal ${
+                isLinkActive(l.href) ? "text-teal-dark" : ""
+              }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
-        <a
-          href="#contact"
+        <Link
+          href="/#contact"
           onClick={() => setOpen(false)}
           className="mt-3 block rounded-full bg-teal-dark px-5 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-ink"
         >
           Book Now
-        </a>
+        </Link>
       </div>
     </header>
   );
