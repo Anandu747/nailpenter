@@ -28,7 +28,8 @@ export default function PricingPage() {
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
 
-        <div className="px-6 pb-14 pt-36 md:px-10 md:pb-20 md:pt-56">
+        {/* navbar-ode same container: max-w-7xl px-4 md:px-8 */}
+        <div className="mx-auto max-w-7xl px-4 pb-14 pt-36 md:px-8 md:pb-20 md:pt-56">
           <FadeUp>
             <h1 className="font-display text-5xl font-normal text-white md:text-7xl">
               What are you in for?
@@ -57,7 +58,7 @@ export default function PricingPage() {
       </section>
 
       {/* ---------- Price sections ---------- */}
-      <div className="px-6 md:px-10">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
         {PRICING.map((section) => (
           <section
             key={section.id}

@@ -35,7 +35,7 @@ export default function Footer() {
           </ScrollReveal>
           <ScrollReveal direction="right">
             <a
-              href="https://wa.me/918111897359?text=Hi%20Nailbento%2C%20I%27d%20like%20to%20book%20an%20appointment."
+              href="https://wa.me/918111897359?text=Hi%20Nailpenter%2C%20I%27d%20like%20to%20book%20an%20appointment."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-medium text-ink transition hover:bg-teal hover:text-white"

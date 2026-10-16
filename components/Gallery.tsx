@@ -90,7 +90,7 @@ export default function Gallery() {
 
         <FadeUp delay={300}>
           <a
-             href="https://wa.me/918111897359?text=Hi%20Nailbento%2C%20I%27d%20like%20to%20book%20an%20appointment."
+             href="https://wa.me/918111897359?text=Hi%20Nailpenter%2C%20I%27d%20like%20to%20book%20an%20appointment."
   target="_blank"
   rel="noopener noreferrer"
             className="mt-10 inline-block border-b border-ink pb-1 text-xs font-semibold uppercase tracking-[0.25em] text-ink transition hover:border-teal-dark hover:text-teal-dark"

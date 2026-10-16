@@ -6,7 +6,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="mx-auto mt-28 max-w-[1440px] px-6 md:mt-40 md:px-16 lg:px-24"
+      className="mx-auto mt-12 max-w-[1440px] px-6 md:mt-16 md:px-16 lg:px-24"
     >
       {/* Header */}
       <div className="grid gap-6 md:grid-cols-2 md:items-end md:gap-20">

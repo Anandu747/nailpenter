@@ -2,24 +2,29 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const SLIDE_DURATION = 8000; // ms per video
+const SLIDE_DURATION = 8000; // ms per slide
 
 const slides = [
   {
-    video: "/showcase.mp4",
+    video: "/compressed/REEL1.mp4", // length 0:47
+    start: 30, // 0:04 muthal play
     eyebrow: "Nailpenter by Soniya",
     title: "Luxury Nail Care",
-    cta: { label: "Book Your Set", 
-    href: "https://wa.me/918111897359?text=Hi%20Nailbento%2C%20I%27d%20like%20to%20book%20an%20appointment." },
+    cta: {
+      label: "Book Your Set",
+      href: "https://wa.me/918111897359?text=Hi%20Nailpenter%2C%20I%27d%20like%20to%20book%20an%20appointment.",
+    },
   },
   {
-    video: "/showcase1.mp4",
+    video: "/compressed/REEL2.mp4", // length 0:31
+    start: 15, // 0:03 muthal play
     eyebrow: "Handmade Press-ons",
     title: "Elegant Nails. Effortless Confidence.",
     cta: { label: "Explore Collection", href: "#categories" },
   },
   {
-    video: "/showcase2.mp4",
+    video: "/compressed/REEL3.mp4", // length 0:50
+    start: 37, // 0:07 muthal play
     eyebrow: "Nails · Lashes · More",
     title: "Beauty, Redefined",
     cta: { label: "Our Services", href: "#services" },
@@ -30,12 +35,12 @@ export default function Hero() {
   const [active, setActive] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  // Play only the active video, pause the rest
+  // Play only the active video (from its start time), pause the rest
   useEffect(() => {
     videoRefs.current.forEach((v, i) => {
       if (!v) return;
       if (i === active) {
-        v.currentTime = 0;
+        v.currentTime = slides[i].start;
         v.play().catch(() => {});
       } else {
         v.pause();
@@ -64,12 +69,18 @@ export default function Hero() {
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
             i === active ? "opacity-100" : "opacity-0"
           }`}
-          src={s.video}
+          // #t= kodukkumbol browser thanne aa second-il ninnu start cheyyum
+          src={`${s.video}#t=${s.start}`}
           muted
-          loop
           playsInline
           preload={i === 0 ? "auto" : "metadata"}
           autoPlay={i === 0}
+          // video theernnaal start time-il ninnu veendum
+          onEnded={(e) => {
+            const v = e.currentTarget;
+            v.currentTime = s.start;
+            v.play().catch(() => {});
+          }}
         />
       ))}
 
