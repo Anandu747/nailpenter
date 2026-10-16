@@ -141,7 +141,7 @@ export const PRICING: PriceSection[] = [
       {
         title: "Mega Volume",
         desc: "Perfect to create drama.",
-        img: D.lashes,
+        img: D.mega,
         items: [
           { name: "Full set", price: 4999 },
           { name: "1 to 2 week refill", price: 2499 },
@@ -155,7 +155,7 @@ export const PRICING: PriceSection[] = [
       },
       {
         title: "Lash Lift & Tint",
-        img: D.lash,
+        img: D.lift,
         items: [
           { name: "Lash lifting + tint", price: 2999 },
           { name: "Lash lifting", price: 2499 },

@@ -25,8 +25,9 @@ export default function PriceCard({
 
   return (
     <FadeUp delay={(index % 3) * 150} className="h-full">
+      {/* Ellaa cards-um same fixed height */}
       <article
-        className={`group h-full rounded-[2rem] p-2.5 ${bg}`}
+        className={`group h-[460px] rounded-[2rem] p-2.5 md:h-[500px] ${bg}`}
       >
         {/* Viewport: purathu pokunnath maraikkum */}
         <div className="h-full overflow-hidden rounded-3xl">
@@ -39,13 +40,13 @@ export default function PriceCard({
             {/* ---------- Panel 1: image + heading ---------- */}
             <div
               aria-hidden={open}
-              className={`flex w-1/2 shrink-0 flex-col transition-[visibility] duration-0 ${
+              className={`flex min-h-0 w-1/2 shrink-0 flex-col transition-[visibility] duration-0 ${
                 open ? "invisible delay-700" : "visible delay-0"
               }`}
             >
               <div
                 onClick={() => setOpen(true)}
-                className="relative min-h-56 flex-1 cursor-pointer overflow-hidden rounded-3xl md:min-h-64"
+                className="relative min-h-0 flex-1 cursor-pointer overflow-hidden rounded-3xl"
               >
                 <img
                   src={group.img}
@@ -82,11 +83,12 @@ export default function PriceCard({
             {/* ---------- Panel 2: prices + buttons ---------- */}
             <div
               aria-hidden={!open}
-              className={`flex w-1/2 shrink-0 flex-col px-4 pb-4 pt-3 transition-[visibility] duration-0 ${
+              className={`flex min-h-0 w-1/2 shrink-0 flex-col px-4 pb-4 pt-3 transition-[visibility] duration-0 ${
                 open ? "visible delay-0" : "invisible delay-700"
               }`}
             >
-              <div className="flex items-center gap-3">
+              {/* Header: scroll aavilla, ennum mukalil nilkkum */}
+              <div className="flex shrink-0 items-center gap-3">
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
@@ -98,66 +100,69 @@ export default function PriceCard({
                 <h3 className="text-2xl font-medium text-ink">{group.title}</h3>
               </div>
 
-              {group.desc && (
-                <p className="mt-3 text-sm font-medium leading-relaxed text-ink/75">
-                  {group.desc}
-                </p>
-              )}
+              {/* Scroll area: desc + price list */}
+              <div className="mt-1 min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 [scrollbar-width:thin]">
+                {group.desc && (
+                  <p className="mt-3 text-sm font-medium leading-relaxed text-ink/75">
+                    {group.desc}
+                  </p>
+                )}
 
-              <ul className="mt-3 divide-y divide-ink/10">
-                {group.items.map((it, i) => {
-                  const title = `${group.title} – ${it.name}`;
-                  const price = formatPrice(it);
-                  return (
-                    <li
-                      key={it.name}
-                      // Slide kazhiyumbol rows mellae fade in (position maarilla, athu kondu jank illa)
-                      className={`flex items-center gap-3 py-3 transition-opacity duration-500 motion-reduce:transition-none ${
-                        open ? "opacity-100" : "opacity-0"
-                      }`}
-                      style={{
-                        transitionDelay: open
-                          ? `${DURATION * 0.45 + i * 70}ms`
-                          : "0ms",
-                      }}
-                    >
-                      <div className="min-w-0 flex-1">
-                        <p className="text-base font-medium text-ink">
-                          {it.name}
-                        </p>
-                        {it.desc && (
-                          <p className="mt-0.5 text-xs font-medium leading-relaxed text-ink/65">
-                            {it.desc}
+                <ul className="mt-3 divide-y divide-ink/10">
+                  {group.items.map((it, i) => {
+                    const title = `${group.title} – ${it.name}`;
+                    const price = formatPrice(it);
+                    return (
+                      <li
+                        key={it.name}
+                        // Slide kazhiyumbol rows mellae fade in (position maarilla, athu kondu jank illa)
+                        className={`flex items-center gap-3 py-3 transition-opacity duration-500 motion-reduce:transition-none ${
+                          open ? "opacity-100" : "opacity-0"
+                        }`}
+                        style={{
+                          transitionDelay: open
+                            ? `${DURATION * 0.45 + i * 70}ms`
+                            : "0ms",
+                        }}
+                      >
+                        <div className="min-w-0 flex-1">
+                          <p className="text-base font-medium text-ink">
+                            {it.name}
                           </p>
-                        )}
-                        <p className="mt-1 text-xl font-medium text-teal-dark">
-                          {price}
-                        </p>
-                      </div>
+                          {it.desc && (
+                            <p className="mt-0.5 text-xs font-medium leading-relaxed text-ink/65">
+                              {it.desc}
+                            </p>
+                          )}
+                          <p className="mt-1 text-xl font-medium text-teal-dark">
+                            {price}
+                          </p>
+                        </div>
 
-                      <div className="flex shrink-0 gap-2">
-                        <a
-                          href={waLink(singleEnquiry(title, price))}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Enquire about ${title} on WhatsApp`}
-                          className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#25D366] bg-white text-[#25D366] transition duration-300 hover:bg-[#25D366] hover:text-white active:scale-95"
-                        >
-                          <FaWhatsapp size={18} />
-                        </a>
-                        <button
-                          type="button"
-                          onClick={() => add({ title, price })}
-                          aria-label={`Add ${title} to cart`}
-                          className="flex h-10 w-10 items-center justify-center rounded-lg bg-ink text-white transition duration-300 hover:bg-teal-dark active:scale-95"
-                        >
-                          <LuShoppingBag size={16} />
-                        </button>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
+                        <div className="flex shrink-0 gap-2">
+                          <a
+                            href={waLink(singleEnquiry(title, price))}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Enquire about ${title} on WhatsApp`}
+                            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#25D366] bg-white text-[#25D366] transition duration-300 hover:bg-[#25D366] hover:text-white active:scale-95"
+                          >
+                            <FaWhatsapp size={18} />
+                          </a>
+                          <button
+                            type="button"
+                            onClick={() => add({ title, price })}
+                            aria-label={`Add ${title} to cart`}
+                            className="flex h-10 w-10 items-center justify-center rounded-lg bg-ink text-white transition duration-300 hover:bg-teal-dark active:scale-95"
+                          >
+                            <LuShoppingBag size={16} />
+                          </button>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

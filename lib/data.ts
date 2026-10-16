@@ -30,7 +30,9 @@ export const IMG = {
   lipstick:"https://images.pexels.com/photos/7290082/pexels-photo-7290082.jpeg",
   hairexe:"https://images.unsplash.com/photo-1734111719430-fe4a3973f8af?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   skincare:"https://plus.unsplash.com/premium_photo-1674739375749-7efe56fc8bbb?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
-  nailcombo:"https://images.unsplash.com/photo-1636019411401-82485711b6ba?q=80&w=1089&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+  nailcombo:"https://images.unsplash.com/photo-1636019411401-82485711b6ba?q=80&w=1089&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  mega:"https://images.unsplash.com/photo-1718720410649-7524fcb0f0a5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  lift:"https://plus.unsplash.com/premium_photo-1664910386045-0c8f9000f029?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
 };
 
 export const NAV_LINKS = [
