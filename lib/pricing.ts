@@ -155,7 +155,7 @@ export const PRICING: PriceSection[] = [
       },
       {
         title: "Lash Lift & Tint",
-        img: D.lift,
+        img: D.lifting,
         items: [
           { name: "Lash lifting + tint", price: 2999 },
           { name: "Lash lifting", price: 2499 },

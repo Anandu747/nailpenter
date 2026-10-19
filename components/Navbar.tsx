@@ -87,7 +87,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
         {/* Logo (left, outside pill) */}
-        <Link
+        {/* <Link
           href="/"
           onClick={() => setActive("")}
           aria-label="Nailbento by Soniya home"
@@ -98,7 +98,19 @@ export default function Navbar() {
             alt="Nailbento by Soniya"
             className="h-20 w-20 rounded-full object-cover md:h-28 md:w-28"
           />
-        </Link>
+        </Link> */}
+<Link
+  href="/"
+  onClick={() => setActive("")}
+  aria-label="Nailpenter by Soniya home"
+  className="pointer-events-auto block h-20 w-20 shrink-0 justify-self-start overflow-hidden rounded-full bg-white shadow-md md:h-28 md:w-28"
+>
+  <img
+    src="/logo1.png"
+    alt="Nailpenter by Soniya"
+    className="h-full w-full scale-[1.3] object-contain"
+  />
+</Link>
 
         {/* Center pill: links only */}
         <nav

@@ -52,11 +52,18 @@ export default function Footer() {
         <div className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1.2fr] md:gap-20 md:py-20">
           {/* Brand */}
           <div>
-            <img
+            {/* <img
               src="/logo.png"
               alt="Nailbento by Soniya"
               className="h-16 w-16 rounded-full bg-white object-cover p-0.5"
-            />
+            /> */}
+            <div className="h-20 w-20 overflow-hidden rounded-full bg-white">
+  <img
+    src="/logo1.png"
+    alt="Nailpenter by Soniya"
+    className="h-full w-full scale-[1.3] object-contain"
+  />
+</div>
             <p className="mt-6 font-display text-3xl font-normal">
               Nailpenter by Soniya
             </p>
