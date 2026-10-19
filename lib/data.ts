@@ -112,7 +112,7 @@ export const SERVICES = [
   },
   {
     name: "Lash Lifting",
-    img: IMG.lifting,
+    img: "/lash-lifting.jpeg",
     desc: "Your natural lashes curled upward for a wide-awake look, with no extensions needed. Soft, neat and low maintenance.",
   },
   {
