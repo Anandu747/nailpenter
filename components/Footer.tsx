@@ -136,16 +136,25 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-3 border-t border-white/15 py-8 text-xs font-medium uppercase tracking-[0.2em] text-white/40 md:flex-row">
-          <p>
-            © {new Date().getFullYear()} Nailpenter by Soniya. All rights
-            reserved.
-          </p>
-          <a href="#" className="transition hover:text-teal">
-            Back to top ↑
-          </a>
-        </div>
+        
+{/* Bottom bar */}
+<div className="flex flex-col items-center justify-between gap-3 border-t border-white/15 py-8 text-xs font-medium uppercase tracking-[0.2em] text-white/40 md:flex-row">
+  <p>
+    © {new Date().getFullYear()} Nailpenter by Soniya. All rights
+    reserved.
+  </p>
+  <p>
+    Powered by{" "}
+    <a
+      href="https://www.outriftmedia.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white/70 transition hover:text-teal"
+    >
+      Outrift Media
+    </a>
+  </p>
+</div>
       </div>
     </footer>
   );
