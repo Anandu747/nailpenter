@@ -32,12 +32,14 @@ export const IMG = {
   skincare:"https://plus.unsplash.com/premium_photo-1674739375749-7efe56fc8bbb?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   nailcombo:"https://images.unsplash.com/photo-1636019411401-82485711b6ba?q=80&w=1089&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   mega:"https://images.unsplash.com/photo-1718720410649-7524fcb0f0a5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
-  lift:"https://plus.unsplash.com/premium_photo-1664910386045-0c8f9000f029?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+  lift:"https://plus.unsplash.com/premium_photo-1664910386045-0c8f9000f029?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  lifting:"https://images.unsplash.com/photo-1709477542149-f4e0e21d590b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
 };
 
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Academy", href: "#academy" },
   { label: "Pricing", href: "/pricing" },
   { label: "Reviews", href: "#reviews" },
   { label: "Faq", href: "#faq" },
@@ -110,7 +112,7 @@ export const SERVICES = [
   },
   {
     name: "Lash Lifting",
-    img: IMG.lash,
+    img: IMG.lifting,
     desc: "Your natural lashes curled upward for a wide-awake look, with no extensions needed. Soft, neat and low maintenance.",
   },
   {
@@ -136,12 +138,16 @@ export const HOURS = [
   ["Sunday", "Closed"],
 ];
 
+const ADDRESS =
+  "Teresa Nagar, Shastri Nagar, Kadavanthra, Kochi, Ernakulam, Keralam 682020";
+
 export const CONTACT = {
   phone: "8111897359",
   phoneDisplay: "+91 81118 97359",
   instagram: "https://www.instagram.com/thenailpenter/",
   handle: "@thenailpenter",
-  location: "Kochi, Kerala",
+  location: ADDRESS,
+  mapLink: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`,
 };
 
 export const ABOUT_STATS = [

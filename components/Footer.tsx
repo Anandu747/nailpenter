@@ -110,9 +110,20 @@ export default function Footer() {
                   Follow on Instagram
                 </a>
               </li>
-              <li className="flex items-center gap-4 text-white/80">
-                <LuMapPin size={20} strokeWidth={1.25} className="text-teal" />
-                {CONTACT.location}
+              <li>
+                <a
+                  href={CONTACT.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 text-white/80 transition hover:text-teal"
+                >
+                  <LuMapPin
+                    size={20}
+                    strokeWidth={1.25}
+                    className="mt-1 shrink-0 text-teal"
+                  />
+                  {CONTACT.location}
+                </a>
               </li>
             </ul>
           </div>

@@ -14,6 +14,7 @@ import Faq from "@/components/Faq";
 import Reviews from "@/components/Reviews";
 import InstagramReels from "@/components/InstagramReels";
 import Gallery from "@/components/Gallery";
+import Academy from "@/components/Academy";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       </div>
 
       <Services />
+      <Academy />
 
       <Showcase />
 
