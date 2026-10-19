@@ -29,16 +29,14 @@ export default function About() {
 
             <FadeUp delay={200}>
               <p className="mt-6 max-w-lg text-[14px] leading-relaxed text-ink/70">
-                Founded by Soniya Mahesh in 2022, Nail Penter began as her step
+                Founded by Soniya Mahesh in 2022, Nailpenter began as her step
                 into entrepreneurship at the age of 21. The brand was built
                 around a distinctive name and the idea of creating an identity
-                that stands apart. Inspired by the word Carpenter, the name Nail
-                Penter brings a fresh perspective to the concept of
+                that stands apart. Inspired by the word Carpenter, the name Nailpenter brings a fresh perspective to the concept of
                 craftsmanship. By reimagining the word through the lens of
                 nails, Soniya gave her brand a name that is memorable,
-                expressive, and uniquely its own. For Soniya, starting Nail
-                Penter marked the beginning of building something independently
-                — a brand with its own identity and a story that continues to
+                expressive, and uniquely its own. For Soniya, starting Nailpenter marked the beginning of building something independently
+                - a brand with its own identity and a story that continues to
                 evolve. Since 2022, it has represented her journey from an idea
                 to a business shaped by her vision and entrepreneurial spirit.
               </p>

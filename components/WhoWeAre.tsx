@@ -9,7 +9,7 @@ const PILLARS = [
     no: "01",
     image: unsplash("photo-1690749138086-7422f71dc159"),
     title: "How It Began",
-    text: "Nailbento started with Soniya's love for nail art, right here in Kochi. What began as designing sets for friends grew into a studio where every client gets a look made just for her.",
+    text: "Nailpenter started with Soniya's love for nail art, right here in Kochi. What began as designing sets for friends grew into a studio where every client gets a look made just for her.",
   },
   {
     no: "02",
