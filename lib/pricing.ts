@@ -195,6 +195,7 @@ export const PRICING: PriceSection[] = [
     groups: [
       {
         title: "Lip Artistry",
+        desc: "Final price is confirmed after consultation.",
         img: D.lip,
         items: [
           { name: "Lip blush / tinting", price: 5999 },
@@ -211,6 +212,7 @@ export const PRICING: PriceSection[] = [
     groups: [
       {
         title: "Hair Extensions",
+        desc: "Final price is confirmed after consultation.",
         img: D.hair,
         items: [
           { name: "Tape-in extensions (base 100g)", price: 10000, from: true },
