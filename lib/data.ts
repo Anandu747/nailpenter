@@ -38,9 +38,9 @@ export const IMG = {
 
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
+  // { label: "Services", href: "#services" },
   { label: "Academy", href: "#academy" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Services", href: "/services" },
   { label: "Reviews", href: "#reviews" },
   { label: "Faq", href: "#faq" },
 ];

@@ -6,10 +6,14 @@ import FadeUp from "@/components/FadeUp";
 import { useCart } from "@/components/CartProvider";
 import { singleEnquiry, waLink } from "@/lib/whatsapp";
 import { formatPrice, type PriceGroup } from "@/lib/pricing";
-import { LuShoppingBag, LuChevronRight, LuChevronLeft } from "react-icons/lu";
+import { LuShoppingBag, LuChevronLeft, LuPhone } from "react-icons/lu";
 import { FaWhatsapp } from "react-icons/fa";
 
 const DURATION = 700; // ms, slide speed maattan ivide + duration-700 maattuka
+
+// Client price venda ennu paranju — true aakkiyaal pazhaya slide/price panel thirichu varum
+const SHOW_PRICES = false;
+const PHONE = "+918111897359";
 
 export default function PriceCard({
   group,
@@ -23,15 +27,16 @@ export default function PriceCard({
   const { add } = useCart();
   const [open, setOpen] = useState(false);
 
+  const groupEnquiry = waLink(
+    `Hi, I'd like to know more about ${group.title} services.`
+  );
+
   return (
     <FadeUp delay={(index % 3) * 150} className="h-full">
-      {/* Ellaa cards-um same fixed height */}
       <article
         className={`group h-[460px] rounded-[2rem] p-2.5 md:h-[500px] ${bg}`}
       >
-        {/* Viewport: purathu pokunnath maraikkum */}
         <div className="h-full overflow-hidden rounded-3xl">
-          {/* Track: randu panels orumichu slide aakum */}
           <div
             className={`flex h-full w-[200%] transform-gpu transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] motion-reduce:transition-none ${
               open ? "-translate-x-1/2" : "translate-x-0"
@@ -45,8 +50,10 @@ export default function PriceCard({
               }`}
             >
               <div
-                onClick={() => setOpen(true)}
-                className="relative min-h-0 flex-1 cursor-pointer overflow-hidden rounded-3xl"
+                onClick={SHOW_PRICES ? () => setOpen(true) : undefined}
+                className={`relative min-h-0 flex-1 overflow-hidden rounded-3xl ${
+                  SHOW_PRICES ? "cursor-pointer" : ""
+                }`}
               >
                 <img
                   src={group.img}
@@ -68,102 +75,113 @@ export default function PriceCard({
                   </p>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => setOpen(true)}
-                  aria-label={`View ${group.title} prices`}
-                  aria-expanded={open}
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ink text-white transition duration-300 hover:bg-teal-dark active:scale-95"
-                >
-                  <LuChevronRight size={22} />
-                </button>
+                {/* Chevron-nu pakaram WhatsApp + Call */}
+                <div className="flex shrink-0 gap-2">
+                  <a
+                    href={groupEnquiry}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Enquire about ${group.title} on WhatsApp`}
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white transition duration-300 hover:bg-[#1ebe5a] active:scale-95"
+                  >
+                    <FaWhatsapp size={22} />
+                  </a>
+                  <a
+                    href={`tel:${PHONE}`}
+                    aria-label="Call us"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-ink text-white transition duration-300 hover:bg-teal-dark active:scale-95"
+                  >
+                    <LuPhone size={20} />
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* ---------- Panel 2: prices + buttons ---------- */}
-            <div
-              aria-hidden={!open}
-              className={`flex min-h-0 w-1/2 shrink-0 flex-col px-4 pb-4 pt-3 transition-[visibility] duration-0 ${
-                open ? "visible delay-0" : "invisible delay-700"
-              }`}
-            >
-              {/* Header: scroll aavilla, ennum mukalil nilkkum */}
-              <div className="flex shrink-0 items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  aria-label="Back"
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-ink transition duration-300 hover:bg-ink hover:text-white active:scale-95"
-                >
-                  <LuChevronLeft size={20} />
-                </button>
-                <h3 className="text-2xl font-medium text-ink">{group.title}</h3>
-              </div>
+            {SHOW_PRICES && (
+              <div
+                aria-hidden={!open}
+                className={`flex min-h-0 w-1/2 shrink-0 flex-col px-4 pb-4 pt-3 transition-[visibility] duration-0 ${
+                  open ? "visible delay-0" : "invisible delay-700"
+                }`}
+              >
+                <div className="flex shrink-0 items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    aria-label="Back"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-ink transition duration-300 hover:bg-ink hover:text-white active:scale-95"
+                  >
+                    <LuChevronLeft size={20} />
+                  </button>
+                  <h3 className="text-2xl font-medium text-ink">
+                    {group.title}
+                  </h3>
+                </div>
 
-              {/* Scroll area: desc + price list */}
-              <div className="mt-1 min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 [scrollbar-width:thin]">
-                {group.desc && (
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-ink/75">
-                    {group.desc}
-                  </p>
-                )}
+                <div className="mt-1 min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 [scrollbar-width:thin]">
+                  {group.desc && (
+                    <p className="mt-3 text-sm font-medium leading-relaxed text-ink/75">
+                      {group.desc}
+                    </p>
+                  )}
 
-                <ul className="mt-3 divide-y divide-ink/10">
-                  {group.items.map((it, i) => {
-                    const title = `${group.title} – ${it.name}`;
-                    const price = formatPrice(it);
-                    return (
-                      <li
-                        key={it.name}
-                        // Slide kazhiyumbol rows mellae fade in (position maarilla, athu kondu jank illa)
-                        className={`flex items-center gap-3 py-3 transition-opacity duration-500 motion-reduce:transition-none ${
-                          open ? "opacity-100" : "opacity-0"
-                        }`}
-                        style={{
-                          transitionDelay: open
-                            ? `${DURATION * 0.45 + i * 70}ms`
-                            : "0ms",
-                        }}
-                      >
-                        <div className="min-w-0 flex-1">
-                          <p className="text-base font-medium text-ink">
-                            {it.name}
-                          </p>
-                          {it.desc && (
-                            <p className="mt-0.5 text-xs font-medium leading-relaxed text-ink/65">
-                              {it.desc}
+                  <ul className="mt-3 divide-y divide-ink/10">
+                    {group.items.map((it, i) => {
+                      const title = `${group.title} – ${it.name}`;
+                      const price = formatPrice(it);
+                      return (
+                        <li
+                          key={it.name}
+                          className={`flex items-center gap-3 py-3 transition-opacity duration-500 motion-reduce:transition-none ${
+                            open ? "opacity-100" : "opacity-0"
+                          }`}
+                          style={{
+                            transitionDelay: open
+                              ? `${DURATION * 0.45 + i * 70}ms`
+                              : "0ms",
+                          }}
+                        >
+                          <div className="min-w-0 flex-1">
+                            <p className="text-base font-medium text-ink">
+                              {it.name}
                             </p>
-                          )}
-                          <p className="mt-1 text-xl font-medium text-teal-dark">
-                            {price}
-                          </p>
-                        </div>
+                            {it.desc && (
+                              <p className="mt-0.5 text-xs font-medium leading-relaxed text-ink/65">
+                                {it.desc}
+                              </p>
+                            )}
+                            <p className="mt-1 text-xl font-medium text-teal-dark">
+                              {price}
+                            </p>
+                          </div>
 
-                        <div className="flex shrink-0 gap-2">
-                          <a
-                            href={waLink(singleEnquiry(title, price))}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`Enquire about ${title} on WhatsApp`}
-                            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#25D366] bg-white text-[#25D366] transition duration-300 hover:bg-[#25D366] hover:text-white active:scale-95"
-                          >
-                            <FaWhatsapp size={18} />
-                          </a>
-                          <button
-                            type="button"
-                            onClick={() => add({ title, price })}
-                            aria-label={`Add ${title} to cart`}
-                            className="flex h-10 w-10 items-center justify-center rounded-lg bg-ink text-white transition duration-300 hover:bg-teal-dark active:scale-95"
-                          >
-                            <LuShoppingBag size={16} />
-                          </button>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
+                          <div className="flex shrink-0 gap-2">
+                            <a
+                              href={waLink(singleEnquiry(title, price))}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`Enquire about ${title} on WhatsApp`}
+                              className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#25D366] bg-white text-[#25D366] transition duration-300 hover:bg-[#25D366] hover:text-white active:scale-95"
+                            >
+                              <FaWhatsapp size={18} />
+                            </a>
+                            <button
+                              type="button"
+                              onClick={() => add({ title, price })}
+                              aria-label={`Add ${title} to cart`}
+                              className="flex h-10 w-10 items-center justify-center rounded-lg bg-ink text-white transition duration-300 hover:bg-teal-dark active:scale-95"
+                            >
+                              <LuShoppingBag size={16} />
+                            </button>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </article>

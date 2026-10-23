@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import { SERVICES } from "@/lib/data";
 import FadeUp from "@/components/FadeUp";
+import { LuArrowRight } from "react-icons/lu";
 
 export default function Services() {
   return (
@@ -37,6 +39,7 @@ export default function Services() {
       <div className="mt-14 flex flex-col gap-16 md:mt-20 md:gap-24">
         {SERVICES.map((s, i) => {
           const imageLeft = i % 2 === 0;
+          const isLast = i === SERVICES.length - 1;
           return (
             <div
               key={s.name}
@@ -70,6 +73,21 @@ export default function Services() {
                     {s.desc}
                   </p>
                 </FadeUp>
+
+                {/* Last item-il maathram: More Services button → /services */}
+                {isLast && (
+                  <FadeUp delay={400}>
+                    <Link
+                      href="/services"
+                      className="group/btn mt-8 inline-flex items-center gap-3 rounded-full bg-teal-dark px-7 py-3.5 text-base font-medium text-white transition duration-300 hover:bg-ink active:scale-95"
+                    >
+                      More Services
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-teal-dark transition duration-300 group-hover/btn:translate-x-1">
+                        <LuArrowRight size={16} />
+                      </span>
+                    </Link>
+                  </FadeUp>
+                )}
               </div>
             </div>
           );

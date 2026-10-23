@@ -37,9 +37,7 @@ export default function PricingPage() {
           </FadeUp>
           <FadeUp delay={100}>
             <p className="mt-3 max-w-xl text-base font-medium leading-relaxed text-white/85 md:text-lg">
-              Every service with a clear price, so you know what to expect
-              before you book. Tap the arrow on a card to see prices, then add
-              to cart or enquire on WhatsApp.
+              Explore our services and reach out on WhatsApp or give us a call - we'll help you pick the right look and book your slot.
             </p>
           </FadeUp>
 
