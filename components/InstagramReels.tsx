@@ -13,6 +13,7 @@ import _FlexCarousel from "@/components/FlexCarousel";
 import FadeUp from "@/components/FadeUp";
 import { LuArrowRight, LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { CONTACT } from "@/lib/data";
+import { igThumb } from "@/lib/utils";
 
 // true aakkiyaal ellarkkum simple carousel (WebGL off). Hang aayaal ithu true aakki ship cheyyuka.
 const FORCE_FALLBACK = false;
@@ -48,7 +49,8 @@ const FlexCarousel = _FlexCarousel as unknown as (
   props: CarouselProps
 ) => ReactElement;
 
-const thumb = (url: string) => `/api/ig-thumb?url=${encodeURIComponent(url)}`;
+//const thumb = (url: string) => `/api/ig-thumb?url=${encodeURIComponent(url)}`;
+const thumb = (url: string) => igThumb(url);
 
 // Puthiya reel venel ivide oru item koodi add cheythaal mathi
 const REELS: CarouselItem[] = [

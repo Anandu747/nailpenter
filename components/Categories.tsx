@@ -28,10 +28,10 @@ export default function Categories() {
 
         <FadeUp delay={100}>
           <Link
-            href="/pricing"
+            href="/services"
             className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-teal-dark px-8 py-4 text-[15px] font-semibold text-white transition hover:bg-ink"
           >
-            View all products
+            View all services
             <LuArrowRight
               size={18}
               className="transition-transform duration-300 group-hover:translate-x-1"
